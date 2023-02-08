@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" name="viewport">
+    <title>Chess Game</title>
+    <link rel="icon" href="chessicon.jpeg">
+    <link rel="stylesheet" href="{{static}}/chess-style.css">
+
+    <!-- JS SCRIPTS -->
+    <script src="{{static}}/scripts/placePieces.js"></script>
+    <script src="{{static}}/scripts/makeDraggable.js" defer></script>
+    <script src="{{static}}/scripts/initialization.js" defer></script>
+    <script src="{{static}}/scripts/mainScript.js" defer></script>
+    <script src="{{static}}/scripts/findMoves.js" defer></script>
+    <script src="{{static}}/scripts/checkIfThreatened.js" defer></script>
+    <script src="{{static}}/scripts/gameRules.js" defer></script>
+</head>
+<body>
+    <table class="board">
+        <thead>
+            <tr draggable="false">
+                <th>A</th>
+                <th>B</th>
+                <th>C</th>
+                <th>D</th>
+                <th>E</th>
+                <th>F</th>
+                <th>G</th>
+                <th>H</th>
+            </tr>
+        </thead>
+        <!-- BOARD CREATED IN THE JS FILE -->
+    </table>
+
+    <img src="{{static}}/pieces/b-rook.png" alt="Book"    class="piece black rook" id="b-rook1">
+    <img src="{{static}}/pieces/b-horse.png"   class="piece black horse" id="b-horse1">
+    <img src="{{static}}/pieces/b-bishop.png"  class="piece black bishop" id="b-bishop1">
+    <img src="{{static}}/pieces/b-queen.png"   class="piece black queen" id="b-queen">
+    <img src="{{static}}/pieces/b-king.png"    class="piece black king" id="b-king">
+    <img src="{{static}}/pieces/b-bishop.png"  class="piece black bishop" id="b-bishop2">
+    <img src="{{static}}/pieces/b-horse.png"   class="piece black horse" id="b-horse2">
+    <img src="{{static}}/pieces/b-rook.png"    class="piece black rook" id="b-rook2">
+
+    <img src="{{static}}/pieces/b-pawn.png" class="piece black pawn" id="b-pawn1">
+    <img src="{{static}}/pieces/b-pawn.png" class="piece black pawn" id="b-pawn2">
+    <img src="{{static}}/pieces/b-pawn.png" class="piece black pawn" id="b-pawn3">
+    <img src="{{static}}/pieces/b-pawn.png" class="piece black pawn" id="b-pawn4">
+    <img src="{{static}}/pieces/b-pawn.png" class="piece black pawn" id="b-pawn5">
+    <img src="{{static}}/pieces/b-pawn.png" class="piece black pawn" id="b-pawn6">
+    <img src="{{static}}/pieces/b-pawn.png" class="piece black pawn" id="b-pawn7">
+    <img src="{{static}}/pieces/b-pawn.png" class="piece black pawn" id="b-pawn8">
+
+
+    <img src="{{static}}/pieces/w-pawn.png" class="piece white pawn" id="w-pawn1">
+    <img src="{{static}}/pieces/w-pawn.png" class="piece white pawn" id="w-pawn2">
+    <img src="{{static}}/pieces/w-pawn.png" class="piece white pawn" id="w-pawn3">
+    <img src="{{static}}/pieces/w-pawn.png" class="piece white pawn" id="w-pawn4">
+    <img src="{{static}}/pieces/w-pawn.png" class="piece white pawn" id="w-pawn5">
+    <img src="{{static}}/pieces/w-pawn.png" class="piece white pawn" id="w-pawn6">
+    <img src="{{static}}/pieces/w-pawn.png" class="piece white pawn" id="w-pawn7">
+    <img src="{{static}}/pieces/w-pawn.png" class="piece white pawn" id="w-pawn8">
+    
+    <img src="{{static}}/pieces/w-rook.png"    class="piece white rook" id="w-rook1">
+    <img src="{{static}}/pieces/w-horse.png"   class="piece white horse" id="w-horse1">
+    <img src="{{static}}/pieces/w-bishop.png"  class="piece white bishop" id="w-bishop1">
+    <img src="{{static}}/pieces/w-queen.png"   class="piece white queen" id="w-queen">
+    <img src="{{static}}/pieces/w-king.png"    class="piece white king" id="w-king">
+    <img src="{{static}}/pieces/w-bishop.png"  class="piece white bishop" id="w-bishop2">
+    <img src="{{static}}/pieces/w-horse.png"   class="piece white horse" id="w-horse2">
+    <img src="{{static}}/pieces/w-rook.png"    class="piece white rook" id="w-rook2">
+
+    <div class="interruption" id="white-promotion">
+        <button onclick="pawnPromote('queen', findMovesQueen)">
+            <img src="{{static}}/pieces/w-queen.png"></button>
+        <button onclick="pawnPromote('rook', findMovesRook)">
+            <img src="{{static}}/pieces/w-rook.png"></button>
+        <button onclick="pawnPromote('bishop', findMovesBishop)">
+            <img src="{{static}}/pieces/w-bishop.png"></button>
+        <button onclick="pawnPromote('horse', findMovesHorse)">
+            <img src="{{static}}/pieces/w-horse.png"></button>
+    </div>
+    <div class="interruption" id="black-promotion">
+        <button onclick="pawnPromote('queen', findMovesQueen)">
+            <img src="{{static}}/pieces/b-queen.png"></button>
+        <button onclick="pawnPromote('rook', findMovesRook)">
+            <img src="{{static}}/pieces/b-rook.png"></button>
+        <button onclick="pawnPromote('bishop', findMovesBishop)">
+            <img src="{{static}}/pieces/b-bishop.png"></button>
+        <button onclick="pawnPromote('horse', findMovesHorse)">
+            <img src="{{static}}/pieces/b-horse.png"></button>
+    </div>
+    <div class="interruption" id="winnerCard">
+        <div class="winner-msg"> CONGRATS TO THE WINNER </div>
+    </div>
+
+</body>
+</html>

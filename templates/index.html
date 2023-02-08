@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Myron Games</title>
+    <link rel="stylesheet" href="{{static}}/index.css">
+</head>
+<body>
+    <h1>Welcome to my first website!</h1>
+    <ul>
+        {% for path in paths %}
+            <a href={{path}}>This is my <strong>{{path.capitalize()}}</strong> project.. Enjoy!</a>
+        {%endfor%}
+    </ul>
+</body>
+</html>

@@ -1,0 +1,21 @@
+
+ul {
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+
+a {
+    color: unset;
+    text-decoration: unset;
+    font-size: large;
+    transition: all .3s;
+}
+
+a:hover {
+    padding-left: 1rem;
+}
+
+
