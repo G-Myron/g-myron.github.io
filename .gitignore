@@ -1,8 +1,10 @@
 # All folders
-/*
+*
 
 # Except
 !static
 !templates
 
+# and except files
+!*.*
 
