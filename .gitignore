@@ -1,1 +1,8 @@
-__pyache__
+# All folders
+/*
+
+# Except
+# !static
+# !templates
+
+
