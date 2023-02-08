@@ -1,0 +1,100 @@
+
+body {
+    display: flex;
+    justify-content: center;
+
+    font-size: large;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    position: absolute;
+    top: 20vh;
+
+    cursor: default;
+}
+
+.folder, .card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    position: absolute;
+    top: 0;
+
+    width: 60vw;
+}
+
+.folder {
+    /* display: none; */
+    background-color: #d9f7ff;
+    color: transparent;
+    padding: 3vmax;
+    border: 5px solid black;
+    box-shadow: .8rem .8rem .8rem black;
+
+    transition: .05s;
+    z-index: 1;
+}
+
+.folder:active {
+    transform: scale(.95);
+}
+
+.card {
+    background-color: #1cf;
+    padding-bottom: 10px;
+    border: 1px solid black;
+    box-shadow: .5rem .5rem .5rem grey;
+}
+
+.message {
+    font-family: serif;
+    word-spacing: .3rem;
+    margin: 2vh 2vw;
+}
+
+
+.card > .sailing_boat {
+    transform: translate(-100%) rotate(5deg);
+    animation: boatsail 5s infinite linear;
+}
+
+@keyframes boatsail{
+    25%{transform: translate(-50%) rotate(-10deg);}
+    50%{transform: translate(0%) rotate(5deg);}
+    75%{transform: translate(50%) rotate(-10deg);}
+    100%{transform: translate(100%) rotate(5deg);}
+}
+
+.folder > .display {
+    color: black;
+    position: absolute;
+    padding: 1rem;
+    font-size: 2.5rem;
+    text-shadow: 1px 1px 2px black;
+}
+
+
+.animate {
+    animation: letter_out 3s, letter_front 60s infinite linear;
+    animation-delay: 0s, 1.5s;
+}
+
+@keyframes letter_out{
+    50%{transform: translateY(-100%);}
+    100%{transform: translateY(0);}
+}
+
+@keyframes letter_front{
+    0%{z-index: 2;}
+    100%{z-index: 2;}
+}
+
+
+

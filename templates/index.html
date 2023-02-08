@@ -7,10 +7,16 @@
 </head>
 <body>
     <h1>Welcome to my flask website!</h1>
-    <ul>
+    <ul class="container">
         {% for path in paths %}
+        <div class="project {{path}}">
             <a href={{path}}>This is my <strong>{{path.capitalize()}}</strong> project.. Enjoy!</a>
+            <iframe src="/{{path}}"></iframe>
+        </div>
         {%endfor%}
     </ul>
 </body>
 </html>
+
+{# set static = "static/chess" #}
+{# include "chess.html" #}

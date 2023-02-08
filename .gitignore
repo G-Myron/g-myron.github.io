@@ -1,10 +1,14 @@
-# All folders
-*
 
-# Except
-!static
-!templates
+__pycache__
 
-# and except files
-!*.*
+
+# # All folders
+# *
+
+# # Except
+# !static
+# !templates
+
+# # and except files
+# !*.*
 

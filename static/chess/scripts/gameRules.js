@@ -42,7 +42,8 @@ function pawnPromotion(pawn) {  // Open the options to chose
 function pawnPromote(pieceName="queen", promFunction=findMovesQueen) {  // Choose from the options
     pawn = promotionPawn;
     pawn.classList.replace("pawn", pieceName);
-    pawn.src = 'pieces/'+pawn.color[0]+'-'+pieceName+".png";
+    let staticPath = "static/chess" // JINJA
+    pawn.src = staticPath+'/pieces/'+pawn.color[0]+'-'+pieceName+".png";
     findMovesPiece(pawn, promFunction);
     
     promotionBoard.classList.toggle("visible-flex");

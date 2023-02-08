@@ -1,11 +1,22 @@
 
-ul {
-    display: flex;
-    align-content: center;
-    flex-direction: column;
-    gap: 1.5rem;
+body {
+    display: grid;
+    justify-content: center;
 }
 
+h1 {
+    text-align: center;
+}
+
+.container {
+    display: grid;
+    justify-content: center;
+    gap: 2rem;
+}
+
+div.project {
+    display: grid;
+}
 
 a {
     color: unset;
@@ -13,9 +24,12 @@ a {
     font-size: large;
     transition: all .3s;
 }
-
 a:hover {
     padding-left: 1rem;
 }
 
+iframe {
+    width: 62vw; /*Golden Ratio*/
+    height: 62vh;
+}
 

@@ -34,7 +34,6 @@ def favicon():
 
 @app.errorhandler(404)
 def page_not_found(e):
-    # print("THIS IS THE ERROR:", e)
     return render_template("404.html", error_msg=e)
 
 @app.errorhandler(500)
