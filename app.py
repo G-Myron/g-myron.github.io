@@ -4,25 +4,23 @@ import os
 app = Flask(__name__)
 app.config["TEMPLATES_AUTO_RELOAD"] = True
 
-domains = ["chess","rotating-cube"]
+
+# Maps every rout to the coresponding file
+routes = {"chess":"chess", "rotating-cube":"rotatingCube",
+    "rubicks-cube-1":"rubicksCubeV1", "rubicks-cube-2":"rubicksCubeV2"}
+
+
 
 @app.route("/", methods=["GET", "POST"])
 def index():
-    name = "index"
-    return render_template(name+".html", static="static/"+name, paths=domains)
+    return render_template("index.html", static="static/index", paths=routes.keys())
 
 
-@app.route("/"+domains[0])
-def chess():
-    name = "chess"
+@app.route('/<path>')
+def render_project(path):
+    """ Path of any project """
+    name = routes[path]
     return render_template(name+".html", static="static/"+name)
-
-
-@app.route("/"+domains[1])
-def rot_cube():
-    name = "rotatingCube"
-    return render_template(name+".html", static="static/"+name)
-
 
 
 

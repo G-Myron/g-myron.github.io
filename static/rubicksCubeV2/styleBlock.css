@@ -1,0 +1,79 @@
+
+:root{
+    --block-half-side: calc(var(--half-side)/2);
+}
+
+.block{
+    position: absolute;
+    width: calc(2*var(--block-half-side));
+    height: calc(2*var(--block-half-side));
+    transform-style: preserve-3d;
+    transform: translateZ( calc(-1*var(--block-half-side)));
+}
+.block.top{
+    top: 0;
+}
+.block.left{
+    left: 0;
+}
+.block.bottom{
+    bottom: 0;
+}
+.block.right{
+    right: 0;
+}
+
+
+.blockface{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    border: 5px solid black;
+    border-radius: 10px;
+    background-color: white;
+}
+
+.blockface.front{
+    transform: rotateY(0deg) translateZ(var(--block-half-side));
+}
+
+.blockface.back{
+    background-color: black;
+    transform: rotateY(180deg) translateZ(var(--block-half-side));
+}
+
+.blockface.right{
+    transform: rotateY(90deg) translateZ(var(--block-half-side));
+}
+
+.blockface.left{
+    transform: rotateY(-90deg) translateZ(var(--block-half-side));
+}
+
+.blockface.top{
+    transform: rotateX(90deg) translateZ(var(--block-half-side));
+}
+
+.blockface.bottom{
+    transform: rotateX(-90deg) translateZ(var(--block-half-side));
+}
+
+.blockface.red{
+    background: red;
+}
+.blockface.orange{
+    background: orange;
+}
+.blockface.blue{
+    background: blue;
+}
+.blockface.green{
+    background: green;
+}
+.blockface.white{
+    background: white;
+}
+.blockface.yellow{
+    background: yellow;
+}
