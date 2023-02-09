@@ -32,8 +32,8 @@ SQUARES.forEach( (square)=> {
 })
 
 PIECES.forEach( (piece)=> {
-    piece.isThreatened = ()=> piece.square().isThreatened();
-    piece.isnotThreatened = ()=> piece.square().isnotThreatened();
+    piece.isThreatened = ()=> /*piece.square*/ findPieceSquare(piece).isThreatened();
+    piece.isnotThreatened = ()=> /*piece.square*/ findPieceSquare(piece).isnotThreatened();
 })
 
 

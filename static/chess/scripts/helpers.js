@@ -5,8 +5,8 @@ function saveState() {
 
     let state = {"playersTurn":playersTurn, "pieces":{}};
     document.querySelectorAll('.piece').forEach( p => {
-        let sq = p.square()
-        state.pieces[p.id] = sq===null? sq: sq.id
+        let sq = p.square;
+        state.pieces[p.id] = sq===null? sq: sq.id;
     });
     fetch('/chess', {method:'POST', body: JSON.stringify(state)});
 }

@@ -1,6 +1,6 @@
 function makeMove(piece) {
-    var startPos =[];
-    var square =null;
+    var startPos = [];
+    var square = null;
     piece.onmousedown = piece.ontouchstart = (event)=> {
         if(playersTurn != piece.color) return;
         onClick(event);
@@ -13,7 +13,7 @@ function makeMove(piece) {
         e.preventDefault();
         if(e.type==='touchstart') e = e.changedTouches[0];  // Touch screen
         lift(piece, e);
-        square = piece.square();
+        square = piece.square;
         startPos = [piece.style.left, piece.style.top];
         [posX, posY] = [e.clientX, e.clientY];
         piece.movesAllowed = piece.findMoves();
@@ -31,14 +31,16 @@ function makeMove(piece) {
 
     function onMouseUp() {
         document.onmouseup = document.onmousemove = piece.ontouchmove = piece.ontouchend = null;
+        piece.square = findPieceSquare(piece);
         if(!putPieceOnSquare(piece, square)) { // If piece was not placed, return in previous position
             [piece.style.left, piece.style.top] = startPos;
             putPieceOnSquare(piece, square);
         }
-        if(piece.square() != square) { // If pice has changed square
+        console.log(piece.square, square);
+        if(piece.square != square) { // If pice has changed square
+            // piece.square = findPieceSquare(piece);
             piece.moved = true;
-            if(playersTurn == "white") playersTurn="black";
-            else playersTurn="white";   // Change the player that plays next
+            playersTurn = {"white":"black", "black":"white"}[playersTurn]   // Change the player that plays next
             saveState();
         }
         hideAllMoves();

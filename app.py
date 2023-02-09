@@ -1,8 +1,14 @@
+from flask_session import Session
 from flask import Flask, render_template, send_file, redirect, request, session
 import os,json
 
 app = Flask(__name__)
 app.config["TEMPLATES_AUTO_RELOAD"] = True
+
+# Configure session to use filesystem instead of signed cookies
+app.config["SESSION_PERMANENT"] = False
+app.config["SESSION_TYPE"] = "filesystem"
+Session(app)
 
 
 # Maps every route to the coresponding file
@@ -14,22 +20,29 @@ routes = {"chess":"chess", "rotating-cube":"rotatingCube",
 
 @app.route("/", methods=["GET", "POST"])
 def index():
+    # print(session.get("chessState"))
+    session["Developer"] = "Myron"
     return render_template("index.html", static="static/index", paths=routes.keys())
 
 
-@app.route('/chess', methods=["POST"])
+@app.route('/chess', methods=["GET", "POST"])
 def chess():
     """ Path of any project """
-    form = request.form
-    # print(form)
-    args = request.args
-    # print(args)
+    # session.clear()
 
-    data = json.loads(request.data)
-    print(data)
+    if "state" not in session:
+        print("Initial session")
+        session["state"] = {"test":90}
+
+    if request.method == 'POST':
+        form = request.form
+        args = request.args
+
+        session["state"] = json.loads(request.data)
+        print("State saved succesfully!")
 
     name = routes['chess']
-    return "POST REQUESTED"+render_template(name+".html", static="static/"+name)
+    return render_template(name+".html", static="static/"+name, initialState=session["state"])
 
 
 @app.route('/<path>')

@@ -7,10 +7,13 @@
     <title>Chess Game</title>
     <link rel="icon" href="{{static}}/chessicon.jpeg">
     <link rel="stylesheet" href="{{static}}/chess-style.css">
-
-    <!-- JS SCRIPTS -->
+    
+    <!-- Helper files -->
+    <script id="dataInput">var dataInput = JSON.parse('{{initialState | tojson}}')</script>
+    <script src="{{static}}/scripts/helpers.js"></script>
     <script src="{{static}}/scripts/placePieces.js"></script>
-    <script src="{{static}}/scripts/helpers.js" defer></script>
+    
+    <!-- JS scripts -->
     <script src="{{static}}/scripts/makeMove.js" defer></script>
     <script src="{{static}}/scripts/initialization.js" defer></script>
     <script src="{{static}}/scripts/mainScript.js" defer></script>
@@ -35,7 +38,9 @@
         <!-- BOARD CREATED IN THE JS FILE -->
     </table>
 
-    <img src="{{static}}/pieces/b-rook.png" alt="Book"    class="piece black rook" id="b-rook1">
+    
+    <!-- Black pieces -->
+    <img src="{{static}}/pieces/b-rook.png"    class="piece black rook" id="b-rook1">
     <img src="{{static}}/pieces/b-horse.png"   class="piece black horse" id="b-horse1">
     <img src="{{static}}/pieces/b-bishop.png"  class="piece black bishop" id="b-bishop1">
     <img src="{{static}}/pieces/b-queen.png"   class="piece black queen" id="b-queen">
@@ -53,7 +58,7 @@
     <img src="{{static}}/pieces/b-pawn.png" class="piece black pawn" id="b-pawn7">
     <img src="{{static}}/pieces/b-pawn.png" class="piece black pawn" id="b-pawn8">
 
-
+    <!-- White pieces -->
     <img src="{{static}}/pieces/w-pawn.png" class="piece white pawn" id="w-pawn1">
     <img src="{{static}}/pieces/w-pawn.png" class="piece white pawn" id="w-pawn2">
     <img src="{{static}}/pieces/w-pawn.png" class="piece white pawn" id="w-pawn3">
@@ -71,6 +76,7 @@
     <img src="{{static}}/pieces/w-bishop.png"  class="piece white bishop" id="w-bishop2">
     <img src="{{static}}/pieces/w-horse.png"   class="piece white horse" id="w-horse2">
     <img src="{{static}}/pieces/w-rook.png"    class="piece white rook" id="w-rook2">
+
 
     <div class="interruption" id="white-promotion">
         <button onclick="pawnPromote('queen', findMovesQueen)">
@@ -95,10 +101,5 @@
     <div class="interruption" id="winnerCard">
         <div class="winner-msg"> CONGRATS TO THE WINNER </div>
     </div>
-
-    <button onclick="savePositions();">SAVE Positions</button>
-    <!-- <form action="/chess" method="post"> -->
-        <!-- <input type="submit"> -->
-    <!-- </form> -->
 </body>
 </html>

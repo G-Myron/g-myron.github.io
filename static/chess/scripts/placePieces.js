@@ -41,7 +41,7 @@ function centerInSquare(square, piece) {
 
 
 function putPieceOnSquare(piece, oldSquare=null) {
-    square = piece.square();
+    square = piece.square; //findPieceSquare(piece);
     if(!square) return false;
 
     let sqDiff = oldSquare? square.num-oldSquare.num : NaN;
@@ -50,11 +50,13 @@ function putPieceOnSquare(piece, oldSquare=null) {
     if(piece.movesAllowed && ! piece.movesAllowed.includes(square)) { // This move is not allowed
         return false;
     }
+
     if( !piece.moved && piece.classList.contains("king") && oldSquare) { // Roke-Castling
         castling(piece, sqDiff);
     }
+
     if(enPassant==piece && pawnDoubleMove) { // En-Passant
-        let enPSquare = pawnDoubleMove.square();
+        let enPSquare = findPieceSquare(pawnDoubleMove); //pawnDoubleMove.square;
         let enPDiff = Math.abs(enPSquare.num-square.num);
         if(enPDiff==8) eatPiece(enPSquare.piece, enPSquare.piece.color);
     }
@@ -62,12 +64,15 @@ function putPieceOnSquare(piece, oldSquare=null) {
     if(!piece.moved && piece.classList.contains("pawn") && oldSquare) { // En Passant - Check if pawn made double start
         if(Math.abs(sqDiff)==16) pawnDoubleMove=piece;
     }
+
     if(square.piece && square.piece.color!=piece.color) { // Square is occupied by opponent
         eatPiece(square.piece, square.piece.color);
     }
+    
     if(!square.piece) { // Square is empty
         return centerInSquare(square, piece);
     }
+
     return false;
 }
 

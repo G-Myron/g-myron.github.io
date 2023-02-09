@@ -2,7 +2,7 @@
 function findAllPiecesMoves(){   // Called in initialization
     findMovesPiece = (piece, findMovesFunction) => {
         piece.findMoves = function() {
-            square = piece.square();
+            let square = findPieceSquare(piece); //piece.square;
             if (!square) return [];
             
             let moves = findMovesFunction(square, piece);
@@ -122,7 +122,7 @@ function findMovesPawn(square, piece) {   // PAWN MOVES
     
     // EN PASSANT
     if(pawnDoubleMove) {
-        let enPNum = pawnDoubleMove.square().num;
+        let enPNum = findPieceSquare(pawnDoubleMove).num;//pawnDoubleMove.square.num;
         if(enPNum == square.num+1) {
             moves.push(square.num+front+1);
             enPassant = piece;

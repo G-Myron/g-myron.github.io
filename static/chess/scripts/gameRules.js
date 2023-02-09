@@ -22,7 +22,7 @@ function checkKings() {
     else if(threatened) threatened.forEach( p=> p.remove());
 
     function createThreatened(piece) {  // Creates fake piece to see if it would be threatened in that position
-        let sq = piece.square(), childSq = document.createElement('div');
+        let sq = findPieceSquare(piece) /*piece.square*/, childSq = document.createElement('div');
         if(sq.querySelector('.threatened')!=null) return; // Already marked
 
         childSq.classList.add('threatened');
@@ -56,7 +56,7 @@ function castling(king, sqDiff) {
     if(sqDiff==2 || sqDiff==-2) {
         let rook = document.querySelectorAll(".rook."+ king.color)[(sqDiff+2)/4]; // rooks[0/1]
         let rookSq = document.querySelector("#sq"+(square.num - sqDiff/2)) // id+-1
-        rook.square().piece = null;
+        findPieceSquare(rook).piece = null; //rook.square.piece = null;
         centerInSquare(rookSq, rook);
     }
 }

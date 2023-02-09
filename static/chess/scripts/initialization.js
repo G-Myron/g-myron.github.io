@@ -25,13 +25,17 @@ document.querySelectorAll(".square").forEach( sq=> {
 //------------------ Functions -----------------------
 
 function initializePieces() {
+    // let initialState = dataInput["pieces"];
     PIECES.forEach((piece,i)=> {
+        console.log( piece.id, initialState[piece.id]);
         piece.color = piece.classList[1];
-        piece.square = ()=> findPieceSquare(piece);
+        // piece.square = ()=> findPieceSquare(piece);
+        piece.square = document.querySelector(`#${initialState[piece.id]}`);
         piece.moved = false;
 
-        makeMove(piece);
+        makeMove(piece); // Set event-listeners for the piece
         placePieces(piece,i, boardLeft, boardTop);
+        piece.square = findPieceSquare(piece);  // For safety.. If you are sure delete it!
     });
     SQUARES.forEach( (square)=> {
         square.num = Number(square.id.replace("sq", "")); // Get square's number
@@ -42,8 +46,12 @@ function initializePieces() {
 }
 
 function placePieces(piece,i, boardLeft, boardTop) {
-    piece.setAttribute('style',`left:${boardLeft + i%8*squareSize}px;
-        top:${boardTop + (Math.floor(i/8) + 4*Math.floor(i/16) +.5)*squareSize}px`);
+    // piece.style.left = boardLeft + i%8*squareSize + "px";
+    // piece.style.top = boardTop + (Math.floor(i/8) + 4*Math.floor(i/16) +.5)*squareSize + "px";
+    
+    // piece.setAttribute('style',`left:${boardLeft + i%8*squareSize}px;
+    //     top:${boardTop + (Math.floor(i/8) + 4*Math.floor(i/16) +.5)*squareSize}px`);
+
     putPieceOnSquare(piece);
 }
 
