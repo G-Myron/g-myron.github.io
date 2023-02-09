@@ -30,7 +30,7 @@ function initializePieces() {
         piece.square = ()=> findPieceSquare(piece);
         piece.moved = false;
 
-        makeDragable(piece);
+        makeMove(piece);
         placePieces(piece,i, boardLeft, boardTop);
     });
     SQUARES.forEach( (square)=> {

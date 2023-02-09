@@ -10,7 +10,8 @@
 
     <!-- JS SCRIPTS -->
     <script src="{{static}}/scripts/placePieces.js"></script>
-    <script src="{{static}}/scripts/makeDraggable.js" defer></script>
+    <script src="{{static}}/scripts/helpers.js" defer></script>
+    <script src="{{static}}/scripts/makeMove.js" defer></script>
     <script src="{{static}}/scripts/initialization.js" defer></script>
     <script src="{{static}}/scripts/mainScript.js" defer></script>
     <script src="{{static}}/scripts/findMoves.js" defer></script>
@@ -95,5 +96,9 @@
         <div class="winner-msg"> CONGRATS TO THE WINNER </div>
     </div>
 
+    <button onclick="savePositions();">SAVE Positions</button>
+    <!-- <form action="/chess" method="post"> -->
+        <!-- <input type="submit"> -->
+    <!-- </form> -->
 </body>
 </html>

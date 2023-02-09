@@ -1,5 +1,5 @@
 from flask import Flask, render_template, send_file, redirect, request, session
-import os
+import os,json
 
 app = Flask(__name__)
 app.config["TEMPLATES_AUTO_RELOAD"] = True
@@ -15,6 +15,21 @@ routes = {"chess":"chess", "rotating-cube":"rotatingCube",
 @app.route("/", methods=["GET", "POST"])
 def index():
     return render_template("index.html", static="static/index", paths=routes.keys())
+
+
+@app.route('/chess', methods=["POST"])
+def chess():
+    """ Path of any project """
+    form = request.form
+    # print(form)
+    args = request.args
+    # print(args)
+
+    data = json.loads(request.data)
+    print(data)
+
+    name = routes['chess']
+    return "POST REQUESTED"+render_template(name+".html", static="static/"+name)
 
 
 @app.route('/<path>')

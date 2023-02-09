@@ -1,4 +1,4 @@
-function makeDragable(piece) {
+function makeMove(piece) {
     var startPos =[];
     var square =null;
     piece.onmousedown = piece.ontouchstart = (event)=> {
@@ -39,6 +39,7 @@ function makeDragable(piece) {
             piece.moved = true;
             if(playersTurn == "white") playersTurn="black";
             else playersTurn="white";   // Change the player that plays next
+            saveState();
         }
         hideAllMoves();
         checkKings();
