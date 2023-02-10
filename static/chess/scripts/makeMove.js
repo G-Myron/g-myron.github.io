@@ -34,9 +34,9 @@ function makeMove(piece) {
         piece.square = findPieceSquare(piece);
         if(!putPieceOnSquare(piece, square)) { // If piece was not placed, return in previous position
             [piece.style.left, piece.style.top] = startPos;
+            piece.square = findPieceSquare(piece);
             putPieceOnSquare(piece, square);
         }
-        console.log(piece.square, square);
         if(piece.square != square) { // If pice has changed square
             // piece.square = findPieceSquare(piece);
             piece.moved = true;

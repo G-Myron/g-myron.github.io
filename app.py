@@ -21,7 +21,7 @@ routes = {"chess":"chess", "rotating-cube":"rotatingCube",
 @app.route("/", methods=["GET", "POST"])
 def index():
     # print(session.get("chessState"))
-    session["Developer"] = "Myron"
+    # session["Developer"] = "Myron"
     return render_template("index.html", static="static/index", paths=routes.keys())
 
 
@@ -32,7 +32,7 @@ def chess():
 
     if "state" not in session:
         print("Initial session")
-        session["state"] = {"test":90}
+        session["state"] = {}
 
     if request.method == 'POST':
         form = request.form

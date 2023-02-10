@@ -2,9 +2,9 @@
 function findSquare(x,y) { // Find which square contains these coordinates
     for(let square of SQUARES) {
         let squarePos = square.getBoundingClientRect();
-        if (x > squarePos.left && x < squarePos.right && y > squarePos.top && y < squarePos.bottom) {
+        if (squarePos.left < x && x < squarePos.right &&
+            squarePos.top < y && y < squarePos.bottom)
             return square;
-        }
     }
     return null;
 }
@@ -16,18 +16,22 @@ function findPieceSquare(piece) { // Find which square contains this piece
 }
 
 function eatPiece(piece) {
+    // If king is eaten, game ends
+    if(piece.classList.contains("king"))
+        endGame(piece.color);
+    
     let n = document.querySelectorAll(`.${piece.color}.eaten`).length; // How many of this color are eaten
     let side = piece.color=="black"? BOARD.getBoundingClientRect().width : -squareSize; // Pick side to send the piece
 
     // Eat the piece and send it out of the board
-    piece.style.left = boardLeft +side +'px';
+    piece.style.left = boardLeft + side +'px';
     piece.style.top = boardTop + n*squareSize +'px';
     piece.classList.add("eaten");
-    square.piece = null;
+    if (piece.square) piece.square.piece = null;
+    piece.square = null;
     
-    // Check if game ends
-    if(piece.classList.contains("king"))
-        endGame(piece.color);    // If king is eaten
+    
+    return false;
 }
 
 function centerInSquare(square, piece) {
@@ -40,14 +44,15 @@ function centerInSquare(square, piece) {
 }
 
 
+// Place piece to piece.square
 function putPieceOnSquare(piece, oldSquare=null) {
-    square = piece.square; //findPieceSquare(piece);
-    if(!square) return false;
+    let square = piece.square;
+    if(!square) return eatPiece(piece);
 
     let sqDiff = oldSquare? square.num-oldSquare.num : NaN;
 
-    // Define allowed moves
-    if(piece.movesAllowed && ! piece.movesAllowed.includes(square)) { // This move is not allowed
+    // Check if this move is allowed
+    if(piece.movesAllowed && ! piece.movesAllowed.includes(square)) {
         return false;
     }
 

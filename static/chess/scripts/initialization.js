@@ -25,9 +25,8 @@ document.querySelectorAll(".square").forEach( sq=> {
 //------------------ Functions -----------------------
 
 function initializePieces() {
-    // let initialState = dataInput["pieces"];
     PIECES.forEach((piece,i)=> {
-        console.log( piece.id, initialState[piece.id]);
+        // console.log( piece.id, initialState[piece.id]);
         piece.color = piece.classList[1];
         // piece.square = ()=> findPieceSquare(piece);
         piece.square = document.querySelector(`#${initialState[piece.id]}`);
@@ -46,8 +45,11 @@ function initializePieces() {
 }
 
 function placePieces(piece,i, boardLeft, boardTop) {
-    // piece.style.left = boardLeft + i%8*squareSize + "px";
-    // piece.style.top = boardTop + (Math.floor(i/8) + 4*Math.floor(i/16) +.5)*squareSize + "px";
+    // if (piece.square == null) {
+    //     piece.style.left = boardLeft + i%8*squareSize + "px";
+    //     piece.style.top = boardTop + (Math.floor(i/8) + 4*Math.floor(i/16) +.5)*squareSize + "px";
+    //     piece.square = findPieceSquare(piece);
+    // }
     
     // piece.setAttribute('style',`left:${boardLeft + i%8*squareSize}px;
     //     top:${boardTop + (Math.floor(i/8) + 4*Math.floor(i/16) +.5)*squareSize}px`);

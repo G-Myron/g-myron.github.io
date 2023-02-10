@@ -10,7 +10,7 @@ function endGame(color) {
     winnerBox.classList.toggle("visible-flex");
 }
 
-/* CHECK */
+/* CHECK - ROUA */
 
 function checkKings() {
     let king = playersTurn=='white'? document.querySelector("#w-king"): document.querySelector("#b-king");
@@ -55,7 +55,7 @@ function pawnPromote(pieceName="queen", promFunction=findMovesQueen) {  // Choos
 function castling(king, sqDiff) {
     if(sqDiff==2 || sqDiff==-2) {
         let rook = document.querySelectorAll(".rook."+ king.color)[(sqDiff+2)/4]; // rooks[0/1]
-        let rookSq = document.querySelector("#sq"+(square.num - sqDiff/2)) // id+-1
+        let rookSq = document.querySelector("#sq"+(king.square.num - sqDiff/2)) // id+-1
         findPieceSquare(rook).piece = null; //rook.square.piece = null;
         centerInSquare(rookSq, rook);
     }
