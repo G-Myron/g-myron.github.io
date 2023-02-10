@@ -9,7 +9,9 @@
     <link rel="stylesheet" href="{{static}}/chess-style.css">
     
     <!-- Helper files -->
-    <script id="dataInput">var dataInput = JSON.parse('{{initialState | tojson}}')</script>
+    <script id="dataInput">var dataInput = JSON.parse(
+        "chessDataInput" in localStorage? localStorage["chessDataInput"] : '{{initialState | tojson}}')
+    </script>
     <script src="{{static}}/scripts/helpers.js"></script>
     <script src="{{static}}/scripts/placePieces.js"></script>
     

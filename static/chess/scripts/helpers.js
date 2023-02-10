@@ -18,6 +18,7 @@ function saveState() {
         let sq = p.square;
         state.pieces[p.id] = sq===null? sq: sq.id;
     });
+    localStorage["chessDataInput"] = JSON.stringify(state);
     fetch('/chess', {method:'POST', body: JSON.stringify(state)});
 }
 // Save state periodicaly
