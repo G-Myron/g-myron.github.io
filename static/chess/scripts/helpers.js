@@ -24,3 +24,8 @@ function saveState() {
 // Save state periodicaly
 // setInterval(savePositions, 10_000); // every 10s
 
+function clearSavedState() {
+    localStorage.removeItem("chessDataInput");
+    fetch('/chess', {method:'POST', body: '{}'});
+}
+

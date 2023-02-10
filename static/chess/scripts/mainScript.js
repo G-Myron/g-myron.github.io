@@ -1,6 +1,7 @@
 const squareSize = Number.parseFloat(getComputedStyle(SQUARES[0]).height);
 var boardTop = BOARD.offsetTop;
 var boardLeft = BOARD.offsetLeft;
+var gameEnded = false;  // store to session/local;
 var playersTurn = "playersTurn" in dataInput? dataInput["playersTurn"]:"white";
 const initialState = "pieces" in dataInput? dataInput["pieces"]:calcInitState();
 

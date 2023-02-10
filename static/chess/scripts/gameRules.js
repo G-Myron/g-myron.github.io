@@ -5,9 +5,11 @@ var promotionPawn, promotionBoard, pawnDoubleMove=null, enPassant=null;
 function endGame(color) {
     color = color=="white"? "black":"white";
     let winnerMsg = color+" wins!";
-    const winnerBox = document.querySelector("#winnerCard");
+    let winnerBox = document.querySelector("#winnerCard");
     winnerBox.querySelector(".winner-msg").innerHTML = winnerMsg.toUpperCase();
     winnerBox.classList.toggle("visible-flex");
+    gameEnded = true;
+    clearSavedState();
 }
 
 /* CHECK - ROUA */

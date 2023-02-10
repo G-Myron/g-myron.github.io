@@ -4,17 +4,17 @@ const WHITES = document.querySelectorAll('.piece.white');
 const BLACKS = document.querySelectorAll('.piece.black');
 
 // Create Board
-for(i=0; i<8; i++){
-    let row = document.createElement('tr');
-    for(j=0; j<8; j++){
-        let k = i%2? j: 7-j;    // To be colored and numbered corectly
-        let square = document.createElement('td');
-        square.classList.add('square');
-        square.id = "sq" + (i*8 + k);
-        row.appendChild(square);
-    }
-    BOARD.appendChild(row);
-}
+// for(i=0; i<8; i++){
+//     let row = document.createElement('tr');
+//     for(j=0; j<8; j++){
+//         let k = i%2? j: 7-j;    // To be colored and numbered corectly
+//         let square = document.createElement('td');
+//         square.classList.add('square');
+//         square.id = "sq" + (i*8 + k);
+//         row.appendChild(square);
+//     }
+//     BOARD.lastElementChild.appendChild(row); // append to tbody
+// }
 
 const SQUARES = []; // Create list of squares sorted by id number
 document.querySelectorAll(".square").forEach( sq=> {

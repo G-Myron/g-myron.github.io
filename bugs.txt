@@ -6,4 +6,7 @@
 
 4. pwan promotion: After save and restore from session it becomes pawn again.
 
+5. gameEnd(): Optimize it & Check when it is called (if the saved session is a finished game will it be called?)
+6. gameEnded: Think about it..
+7. isnotThreatened: Throws error when game ends.
 

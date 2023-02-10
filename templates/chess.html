@@ -20,7 +20,7 @@
     <script src="{{static}}/scripts/initialization.js" defer></script>
     <script src="{{static}}/scripts/mainScript.js" defer></script>
     <script src="{{static}}/scripts/findMoves.js" defer></script>
-    <script src="{{static}}/scripts/checkIfThreatened.js" defer></script>
+    <script src="{{static}}/scripts/initializeThreatened.js" defer></script>
     <script src="{{static}}/scripts/gameRules.js" defer></script>
 </head>
 <body>
@@ -38,7 +38,18 @@
             </tr>
         </thead>
         <!-- BOARD CREATED IN THE JS FILE -->
+        <tbody>
+            {% for i in range(8) %}
+            <tr>
+                {% for j in range(8) %}
+                {% set k = j if i%2 else 7-j %}
+                <td class="square" id="sq{{8*i + k}}"></td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
     </table>
+    <button id="restartButton" onclick="clearSavedState(); location.reload()">RESTART</button>
 
     
     <!-- Black pieces -->

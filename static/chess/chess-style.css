@@ -24,7 +24,7 @@ tr{
     display: flex;
     background-color: var(--bg-clr);
 }
-tr:nth-child(2n){
+tbody > tr:nth-child(2n+1){
     flex-direction: row-reverse;
 }
 
