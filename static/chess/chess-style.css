@@ -6,18 +6,24 @@
 html, body{
     display: grid;
     place-content: center;
+    background-color: var(--bg-clr);
     height: 100%;
+    /* width: 100%; */
     min-width: 95vw;
     overflow: hidden;
-    background-color: var(--bg-clr);
 }
 
 .board{
     background-color: black;
 }
 
+.adminButton {
+    border-radius: 2em;
+    width: calc(2*var(--size));
+}
+
 .board, img {
-user-select: none;
+    user-select: none;
 }
 
 tr{
@@ -102,6 +108,8 @@ td,th{
     text-align: center;
     cursor: default;
 }
+
+
 
 /* COLORED SQUARES */
 
