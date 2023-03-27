@@ -1,12 +1,16 @@
+CHESS:
 
 1. piece.square: Try to remove all the comments.
 
 2. initializePieces(): work with null values and eaten pieces.
 3. initializePieces(): work with initial value if session is empty.
 
-4. pwan promotion: After save and restore from session it becomes pawn again.
+DONE 4. pwan promotion: After save and restore from session it becomes pawn again.
 
 5. gameEnd(): Optimize it & Check when it is called (if the saved session is a finished game will it be called?)
 6. gameEnded: Think about it..
 7. isnotThreatened: Throws error when game ends.
+
+8. Global variables etc. eg. findMovesPiece
+9. isThreatened? When should it be called? If opponent plays?
 

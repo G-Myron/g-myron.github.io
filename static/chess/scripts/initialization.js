@@ -34,6 +34,9 @@ function initializePieces() {
 
         makeMove(piece); // Set event-listeners for the piece
         placePieces(piece,i, boardLeft, boardTop);
+        if (promotedPieces[piece.id] != undefined)
+            promotePawn(piece, promotedPieces[piece.id]);
+
         piece.square = findPieceSquare(piece);  // For safety.. If you are sure delete it!
     });
     SQUARES.forEach( (square)=> {

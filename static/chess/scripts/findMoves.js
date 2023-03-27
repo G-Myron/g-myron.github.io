@@ -1,6 +1,10 @@
 
 function findAllPiecesMoves(){   // Called in initialization
-    findMovesPiece = (piece, findMovesFunction) => {
+    let findMovesFunctions = {'rook':findMovesRook, 'horse':findMovesHorse,
+        'bishop':findMovesBishop, 'pawn':findMovesPawn, 'queen':findMovesQueen, 'king':findMovesKing};
+    findMovesPiece = (piece, pieceType) => {
+        let findMovesFunction = findMovesFunctions[pieceType];
+
         piece.findMoves = function() {
             let square = findPieceSquare(piece); //piece.square;
             if (!square) return [];
@@ -13,12 +17,7 @@ function findAllPiecesMoves(){   // Called in initialization
                 });
         }
     }
-    document.querySelectorAll(".rook").forEach( piece => findMovesPiece(piece, findMovesRook));
-    document.querySelectorAll(".horse").forEach( piece => findMovesPiece(piece, findMovesHorse));
-    document.querySelectorAll(".bishop").forEach( piece => findMovesPiece(piece, findMovesBishop));
-    document.querySelectorAll(".pawn").forEach( piece => findMovesPiece(piece, findMovesPawn));
-    document.querySelectorAll(".queen").forEach( piece => findMovesPiece(piece, findMovesQueen));
-    document.querySelectorAll(".king").forEach( piece => findMovesPiece(piece, findMovesKing));
+    PIECES.forEach( piece => findMovesPiece(piece, piece.classList[2]));
 }
 
 function findMovesRook(square, piece) {    // ROOK MOVES

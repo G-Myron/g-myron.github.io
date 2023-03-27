@@ -41,14 +41,17 @@ function pawnPromotion(pawn) {  // Open the options to chose
     promotionPawn = pawn;
 }
 
-function pawnPromote(pieceName="queen", promFunction=findMovesQueen) {  // Choose from the options
-    pawn = promotionPawn;
+function promotePawn(pawn, pieceName) {
     pawn.classList.replace("pawn", pieceName);
-    let staticPath = "static/chess" // JINJA
     pawn.src = staticPath+'/pieces/'+pawn.color[0]+'-'+pieceName+".png";
-    findMovesPiece(pawn, promFunction);
-    
+    promotedPieces[pawn.id] = pieceName;
+}
+
+function pawnPromote(pieceName="queen") {  // Choose from the options
+    promotePawn(promotionPawn, pieceName);
+    findMovesPiece(promotionPawn, pieceName);
     promotionBoard.classList.toggle("visible-flex");
+    saveState();
 }
 
 

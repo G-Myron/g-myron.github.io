@@ -115,7 +115,7 @@
     <img src="{{static}}/pieces/w-horse.png"   class="piece white horse" id="w-horse2">
     <img src="{{static}}/pieces/w-rook.png"    class="piece white rook" id="w-rook2">
 
-    <script>
+    <!-- <script>
         let sqSize = Number.parseFloat(getComputedStyle(document.querySelector(".square")).height);
         let boardT = document.querySelector('.board').offsetTop;
         let boardL = document.querySelector('.board').offsetLeft;
@@ -123,27 +123,27 @@
             piece.setAttribute('style',`left:${boardL + i%8*sqSize}px;
                 top:${boardTop + (Math.floor(i/8) + 4*Math.floor(i/16) +.5)*sqSize}px`)
         )
-    </script>
+    </script> -->
 
     
     <div class="interruption" id="white-promotion">
-        <button onclick="pawnPromote('queen', findMovesQueen)">
+        <button onclick="pawnPromote('queen')">
             <img src="{{static}}/pieces/w-queen.png"></button>
-        <button onclick="pawnPromote('rook', findMovesRook)">
+        <button onclick="pawnPromote('rook')">
             <img src="{{static}}/pieces/w-rook.png"></button>
-        <button onclick="pawnPromote('bishop', findMovesBishop)">
+        <button onclick="pawnPromote('bishop')">
             <img src="{{static}}/pieces/w-bishop.png"></button>
-        <button onclick="pawnPromote('horse', findMovesHorse)">
+        <button onclick="pawnPromote('horse')">
             <img src="{{static}}/pieces/w-horse.png"></button>
     </div>
     <div class="interruption" id="black-promotion">
-        <button onclick="pawnPromote('queen', findMovesQueen)">
+        <button onclick="pawnPromote('queen')">
             <img src="{{static}}/pieces/b-queen.png"></button>
-        <button onclick="pawnPromote('rook', findMovesRook)">
+        <button onclick="pawnPromote('rook')">
             <img src="{{static}}/pieces/b-rook.png"></button>
-        <button onclick="pawnPromote('bishop', findMovesBishop)">
+        <button onclick="pawnPromote('bishop')">
             <img src="{{static}}/pieces/b-bishop.png"></button>
-        <button onclick="pawnPromote('horse', findMovesHorse)">
+        <button onclick="pawnPromote('horse')">
             <img src="{{static}}/pieces/b-horse.png"></button>
     </div>
     <div class="interruption" id="winnerCard">
