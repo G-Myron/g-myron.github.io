@@ -63,6 +63,7 @@ function castling(king, sqDiff) {
         let rookSq = document.querySelector("#sq"+(king.square.num - sqDiff/2)) // id+-1
         findPieceSquare(rook).piece = null; //rook.square.piece = null;
         centerInSquare(rookSq, rook);
+        rook.square = rookSq;
     }
 }
 

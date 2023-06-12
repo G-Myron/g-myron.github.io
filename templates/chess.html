@@ -24,32 +24,36 @@
     <script src="{{static}}/scripts/gameRules.js" defer></script>
 </head>
 <body>
-    <table class="board">
-        <thead>
-            <tr draggable="false">
-                <th>A</th>
-                <th>B</th>
-                <th>C</th>
-                <th>D</th>
-                <th>E</th>
-                <th>F</th>
-                <th>G</th>
-                <th>H</th>
-            </tr>
-        </thead>
-        <!-- BOARD CREATED IN THE JS FILE -->
-        <tbody>
-            {% for i in range(8) %}
-            <tr>
-                {% for j in range(8) %}
-                {% set k = j if i%2 else 7-j %}
-                <td class="square" id="sq{{8*i + k}}"></td>
+    <div class="main">
+        <table class="board">
+            <thead>
+                <tr draggable="false">
+                    <th>A</th>
+                    <th>B</th>
+                    <th>C</th>
+                    <th>D</th>
+                    <th>E</th>
+                    <th>F</th>
+                    <th>G</th>
+                    <th>H</th>
+                </tr>
+            </thead>
+            <!-- BOARD CREATED IN THE JS FILE -->
+            <tbody>
+                {% for i in range(8) %}
+                <tr>
+                    {% for j in range(8) %}
+                    {% set k = j if i%2 else 7-j %}
+                    <td class="square" id="sq{{8*i + k}}"></td>
+                    {% endfor %}
+                </tr>
                 {% endfor %}
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    <button id="restartButton" class="adminButton" onclick="clearSavedState(); location.reload()">RESTART</button>
+            </tbody>
+        </table>
+        <div class="utilities">
+            <button id="restartButton" class="adminButton" onclick="clearSavedState(); location.reload()">RESTART</button>
+        </div>
+    </div>
 
     
     {% set pieces = ["rook", "horse", "bishop"] %}

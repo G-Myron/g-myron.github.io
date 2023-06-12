@@ -50,8 +50,9 @@ def render_project(path):
     """ Path of any project """
 
     # Bug. Fix it to return 404 to go to @app.errorhandler(404)
-    # if path not in routes: return render_template("404.html")
-    
+    if not path in routes:
+        return render_template("404.html", error_msg=path)
+
     name = routes[path]
     return render_template(name+".html", static="static/"+name)
 

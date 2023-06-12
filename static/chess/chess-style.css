@@ -1,8 +1,12 @@
 
 :root{
     --size: 10vmin;
+    --white-sq: #fcebd6;
+    --brown-sq: #740;
     --bg-clr: azure;
+    --base: #526;
 }
+
 html, body{
     display: grid;
     place-content: center;
@@ -14,12 +18,33 @@ html, body{
 }
 
 .board{
-    background-color: black;
+    background-color: var(--base);
 }
 
-.adminButton {
-    border-radius: 2em;
+.utilities {
+    background-color: var(--base);
+    border-radius: 0 0 1rem 1rem;
+    padding: .5rem;
+}
+
+.utilities > button {
+    background-color: var(--brown-sq);
+    color: var(--white-sq);
+    font-size: 1em;
+    border: none;
+    border-radius: 2rem;
+    height: 2rem;
     width: calc(2*var(--size));
+    transition: .3s;
+}
+
+.utilities > button:hover {
+    cursor: pointer;
+    background-color: black;
+    transform: scale(1.1);
+}
+.utilities > button:active {
+    transform: scale(1.05);
 }
 
 .board, img {
@@ -41,11 +66,11 @@ td,th{
 
 .square{
     height: var(--size);
-    background-color: #fcebd6;
+    background-color: var(--white-sq);
 }
 
 .square:nth-child(2n+1){
-    background-color: #740; /*#804f0e;*/
+    background-color: var(--brown-sq);
 }
 
 
