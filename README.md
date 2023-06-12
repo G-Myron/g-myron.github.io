@@ -7,6 +7,7 @@
 - 
 - **[App for my Erasmus mobility](https://g-myron.github.io/ErasmusPoliMi/)**
 - **[Simulation of a high school maths problem](https://g-myron.github.io/tall-short-simulation/)**
+- **[My world map](https://g-myron.github.io/worldMap/)**
 - **[My virtual gift card](https://g-myron.github.io/filaras/)**
 - **[My personal page (a first attempt)](https://g-myron.github.io/me/)**
 - **[My first HTML form](https://g-myron.github.io/myForm/)**
@@ -15,5 +16,5 @@
 ---
 ### I am also implementing some of these projects in a flask full-stack app where more features are added (databases).
 
-#### Clone the repository and run with `flask run` or just `app.py`
+#### Clone [this repository](https://github.com/G-Myron/g-myron.github.io.git) and run with `flask run` or just `app.py`
 
