@@ -52,7 +52,7 @@ function promotePawn(pawn, pieceName) {
 
 function pawnPromote(pieceName="queen") {  // Choose from the options
     promotePawn(promotionPawn, pieceName);
-    findMovesPiece(promotionPawn, pieceName);
+    findPieceMoves(promotionPawn, pieceName);
     promotionBoard.classList.toggle("visible-flex");
     saveState();
 }

@@ -1,14 +1,21 @@
 
 ## General Intuition of how the program works:
 
+### Initialization:
+- Define constants (load from memory) and isThreatened methods from mainScript.js and initializeThreatened.js.
+- Load full page (all js etc, and html body).
+- For each piece set mouse-event-listeners and function to find allowed moves, and place it on board.
+
+
+### At each move:
 
 
 ---
 
-**app.py:**
+**app .py:**
 The function chess().
 
-**Bugs.md:**
+**Bugs .md:**
 The solved bugs are proceeded by "-".
 
 - ### *templates*:
@@ -19,7 +26,7 @@ The solved bugs are proceeded by "-".
 The only CSS file.
 
 - ### *static/chess/scripts*:
-    **mainScript.js:**
+    **mainScript.js**
     - *globally*
 
         Define constants,

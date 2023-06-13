@@ -1,29 +1,31 @@
 
-function findAllPiecesMoves(){   // Called in initialization
+// Assigns to piece a function to find allowed moves
+function findPieceMoves(piece) {// Called on initialization
     const findMovesFunctions = {'rook':findMovesRook, 'horse':findMovesHorse,
         'bishop':findMovesBishop, 'pawn':findMovesPawn, 'queen':findMovesQueen, 'king':findMovesKing};
-    
-    // Returns a list of all the allowed squares for a specific piece
-    function findMovesPiece(piece, pieceType) {
-        let pieceMovesFunction = findMovesFunctions[pieceType];
 
-        piece.findMoves = () => {
-            let square = findPieceSquare(piece);
-            if (!square) return [];
-            
-            let moves = pieceMovesFunction(square, piece);
-            // map int-list to objects-list
-            return moves.map( (m) => {
-                    let moveSq = BOARD.querySelector("#sq"+m);
-                    // If allowed square (empty or opponent's) return the square, else undefined
-                    if( moveSq && (!moveSq.piece || moveSq.piece.color!=piece.color) )
-                        return moveSq;
-                });
-        }
+    const pieceMovesFunction = findMovesFunctions[piece.type];
+
+    // Function that returns a list of all the allowed squares for this piece
+    piece.findMoves = () => {
+        let square = findPieceSquare(piece);
+        if (!square) return [];
+        
+        let moves = pieceMovesFunction(square, piece);
+        // map int-list to objects-list
+        return moves.map( (m) => {
+                let moveSq = BOARD.querySelector("#sq"+m);
+                // If allowed square (empty or opponent's) return the square, else undefined
+                if( moveSq && (!moveSq.piece || moveSq.piece.color!=piece.color) )
+                    return moveSq;
+            });
     }
-
-    PIECES.forEach( piece => findMovesPiece(piece, piece.classList[2]));
 }
+
+// This function was valled in initialization, but integrated it in initialization loop.
+// function findAllPiecesMoves(){
+//     PIECES.forEach( piece => findPieceMoves(piece, piece.classList[2]));
+// }
 
 function findMovesRook(square, piece) {    // ROOK MOVES
     let moves = [square.num];
