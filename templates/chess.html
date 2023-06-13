@@ -14,14 +14,14 @@
     </script>
     <script src="{{static}}/scripts/helpers.js"></script>
     <script src="{{static}}/scripts/placePieces.js"></script>
+    <script src="{{static}}/scripts/makeMove.js" defer></script>
     
     <!-- JS scripts -->
-    <script src="{{static}}/scripts/makeMove.js" defer></script>
-    <script src="{{static}}/scripts/initialization.js" defer></script>
     <script src="{{static}}/scripts/mainScript.js" defer></script>
+    <script src="{{static}}/scripts/initialization.js" defer></script>
     <script src="{{static}}/scripts/findMoves.js" defer></script>
-    <script src="{{static}}/scripts/initializeThreatened.js" defer></script>
     <script src="{{static}}/scripts/gameRules.js" defer></script>
+    <script src="{{static}}/scripts/initializeThreatened.js" defer></script>
 </head>
 <body>
     <div class="main">
@@ -56,7 +56,7 @@
     </div>
 
     
-    {% set pieces = ["rook", "horse", "bishop"] %}
+    <!-- {% set pieces = ["rook", "horse", "bishop"] %} -->
 
     <!-- Black pieces -->
     <!-- {% for piece in pieces %}

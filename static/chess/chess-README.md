@@ -6,9 +6,16 @@
 - Load full page (all js etc, and html body).
 - For each piece set mouse-event-listeners and function to find allowed moves, and place it on board.
 
-
 ### At each move:
-
+- Mouse click.
+- Check if it's your turn.
+- Add "lifted" to class and show allowed moves.
+- While moving mouse, move piece.
+- Unclick mouse.
+- Find which square it was moved to.
+- Check if it's allowed, check if it's roke, en-passant, or eating.
+- Place piece on square.
+- Save state, change player's turn, hide availiable moves, check if it's check/roua.
 
 ---
 

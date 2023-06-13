@@ -24,7 +24,7 @@
 
 13. Check putPieceOnSquare if(!square) for the case piece is moved by the user outside of the board
 
-14. Frontend
-15. Possible problems: Changed `let` to `const` in many places..
-
+14. Possible problems: Changed `let` to `const` in many places..
+15. Frontend
+16. All TODOs in comments
 

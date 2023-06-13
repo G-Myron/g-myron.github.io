@@ -12,10 +12,12 @@ function makeMove(piece) { // Called in initialization
     function onClick(e) {
         e.preventDefault();
         if(e.type==='touchstart') e = e.changedTouches[0];  // Touch screen
+
         lift(piece, e);
         square = piece.square;
         startPos = [piece.style.left, piece.style.top];
         [posX, posY] = [e.clientX, e.clientY];
+
         piece.movesAllowed = piece.findMoves();
         showMoves(piece.movesAllowed);
     }
@@ -23,6 +25,8 @@ function makeMove(piece) { // Called in initialization
     function onMove(e) {
         e.preventDefault();
         if(e.type==='touchmove') e = e.changedTouches[0];   // Touch screen
+
+        // Move piece to follow mouse
         [dy, dx] = [posY - e.clientY, posX - e.clientX];
         piece.style.top = Number.parseFloat(piece.style.top) - dy + "px";
         piece.style.left = Number.parseFloat(piece.style.left) - dx + "px";
@@ -32,16 +36,21 @@ function makeMove(piece) { // Called in initialization
     function onMouseUp() {
         document.onmouseup = document.onmousemove = piece.ontouchmove = piece.ontouchend = null;
         piece.square = findPieceSquare(piece);
-        if(!putPieceOnSquare(piece, square)) { // If piece was not placed, return in previous position
+
+        // If piece was not placed, return in previous position
+        if(!putPieceOnSquare(piece, square)) { 
             [piece.style.left, piece.style.top] = startPos;
             piece.square = findPieceSquare(piece);
             putPieceOnSquare(piece, square);
         }
-        if(piece.square != square) { // If pice has changed square
+
+        // If piece has changed square
+        if(piece.square != square) {
             piece.moved = true;
             playersTurn = {"white":"black", "black":"white"}[playersTurn]   // Change the player that plays next
             saveState();
         }
+
         hideAllMoves();
         checkKings();
     }

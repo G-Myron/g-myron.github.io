@@ -1,19 +1,6 @@
-const BOARD = document.querySelector('.board');
-const PIECES = document.querySelectorAll('.piece');
-const WHITES = document.querySelectorAll('.piece.white');
-const BLACKS = document.querySelectorAll('.piece.black');
-
-const SQUARES = []; // Create list of squares sorted by id number
-document.querySelectorAll(".square").forEach( sq=> {
-    id = Number(sq.id.replace('sq',''));
-    SQUARES[id] = sq;
-});
-
-
 function initializePieces() { // Called only from mainScript on load
     PIECES.forEach( (piece) => {
-        piece.color = piece.classList[1];
-        piece.type = piece.classList[2];
+        [_, piece.color, piece.type] = piece.classList;
         piece.moved = false;
         piece.square = document.querySelector(`#${initialState[piece.id]}`);
 
@@ -27,9 +14,6 @@ function initializePieces() { // Called only from mainScript on load
         putPieceOnSquare(piece);
         if (promotedPieces[piece.id] != undefined)
             promotePawn(piece, promotedPieces[piece.id]);
-
-        // For safety.. If you are sure delete it!
-        piece.square = findPieceSquare(piece);
     });
 
     SQUARES.forEach( (square)=> {
@@ -37,7 +21,5 @@ function initializePieces() { // Called only from mainScript on load
         square.row =  Number.parseInt(square.num/8);
         square.column = square.num%8;
     })
-
-    // findAllPiecesMoves(); // Old code
 }
 

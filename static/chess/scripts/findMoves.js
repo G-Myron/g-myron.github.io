@@ -22,10 +22,6 @@ function findPieceMoves(piece) {// Called on initialization
     }
 }
 
-// This function was valled in initialization, but integrated it in initialization loop.
-// function findAllPiecesMoves(){
-//     PIECES.forEach( piece => findPieceMoves(piece, piece.classList[2]));
-// }
 
 function findMovesRook(square, piece) {    // ROOK MOVES
     let moves = [square.num];
@@ -189,6 +185,7 @@ function showMoves(moves) {
     });
 }
 
+// TODO: Optimize function
 function hideAllMoves() {
     document.querySelectorAll(".availiable").forEach(c=> c.remove())
 }

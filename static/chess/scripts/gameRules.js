@@ -1,4 +1,5 @@
-var promotionPawn, promotionBoard, pawnDoubleMove=null, enPassant=null;
+let promotionPawn, promotionBoard; // Used only in this file
+var pawnDoubleMove=null, enPassant=null;
 
 /* GAME TERMINATION */
 
