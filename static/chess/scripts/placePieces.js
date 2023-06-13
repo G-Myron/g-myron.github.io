@@ -1,5 +1,5 @@
 
-function findSquare(x,y) { // Find which square contains these coordinates
+function findSquare(x,y) { // Returns the square that contains these coordinates
     for(let square of SQUARES) {
         let squarePos = square.getBoundingClientRect();
         if (squarePos.left < x && x < squarePos.right &&
@@ -8,7 +8,7 @@ function findSquare(x,y) { // Find which square contains these coordinates
     }
     return null;
 }
-function findPieceSquare(piece) { // Find which square contains this piece
+function findPieceSquare(piece) { // Returns the square that contains this piece
     let piecePos = piece.getBoundingClientRect();
     let pieceLeft = piecePos.left + squareSize/2;
     let pieceTop = piecePos.top + squareSize/2;
@@ -29,9 +29,6 @@ function eatPiece(piece) {
     piece.classList.add("eaten");
     if (piece.square) piece.square.piece = null;
     piece.square = null;
-    
-    
-    return false;
 }
 
 function centerInSquare(square, piece) {
@@ -40,14 +37,19 @@ function centerInSquare(square, piece) {
     square.piece = piece;
     if(piece.classList.contains("pawn") && (square.row<1 || square.row>6))
         pawnPromotion(piece);    // If a pawn reaches the end it promotes
-    return true;
 }
 
 
 // Place piece to piece.square
-function putPieceOnSquare(piece, oldSquare=null) {
+function putPieceOnSquare(piece, oldSquare=null) { // returns false if piece was not placed
     let square = piece.square;
-    if(!square) return eatPiece(piece);
+
+    // Outside of board because eaten (or falsly moved? TODO)
+    if(!square) {
+        // console.log(piece.classList);
+        eatPiece(piece);
+        return false;
+    }
 
     let sqDiff = oldSquare? square.num-oldSquare.num : NaN;
 
@@ -55,27 +57,32 @@ function putPieceOnSquare(piece, oldSquare=null) {
     if(piece.movesAllowed && ! piece.movesAllowed.includes(square)) {
         return false;
     }
-
-    if( !piece.moved && piece.classList.contains("king") && oldSquare) { // Roke-Castling
+    
+    // Roke-Castling
+    if( !piece.moved && piece.classList.contains("king") && oldSquare) {
         castling(piece, sqDiff);
     }
 
+    // En passant
     if(enPassant==piece && pawnDoubleMove) { // En-Passant
-        let enPSquare = findPieceSquare(pawnDoubleMove); //pawnDoubleMove.square;
+        let enPSquare = findPieceSquare(pawnDoubleMove);
         let enPDiff = Math.abs(enPSquare.num-square.num);
         if(enPDiff==8) eatPiece(enPSquare.piece, enPSquare.piece.color);
     }
     if(sqDiff!=0) pawnDoubleMove=enPassant = null;    // Initialize en-passant global variables
-    if(!piece.moved && piece.classList.contains("pawn") && oldSquare) { // En Passant - Check if pawn made double start
+    if(!piece.moved && piece.classList.contains("pawn") && oldSquare) { // Check if pawn made double start for en-passant
         if(Math.abs(sqDiff)==16) pawnDoubleMove=piece;
     }
 
-    if(square.piece && square.piece.color!=piece.color) { // Square is occupied by opponent
+    // Square is occupied by opponent
+    if(square.piece && square.piece.color!=piece.color) {
         eatPiece(square.piece, square.piece.color);
     }
-    
-    if(!square.piece) { // Square is empty
-        return centerInSquare(square, piece);
+
+    // Square is empty and availiable
+    if(!square.piece) {
+        centerInSquare(square, piece);
+        return true;
     }
 
     return false;

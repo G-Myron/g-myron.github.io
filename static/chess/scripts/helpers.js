@@ -1,5 +1,6 @@
 
 // Default initial state if not saved
+// Returns object of structure (piece_id: square_id,..}
 function calcInitState(state={}) {
     for (let p=0; p<32; p++) {
         sq = p<16? p : p+32;

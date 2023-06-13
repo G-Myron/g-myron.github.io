@@ -1,4 +1,4 @@
-function makeMove(piece) {
+function makeMove(piece) { // Called in initialization
     var startPos = [];
     var square = null;
     piece.onmousedown = piece.ontouchstart = (event)=> {
@@ -38,7 +38,6 @@ function makeMove(piece) {
             putPieceOnSquare(piece, square);
         }
         if(piece.square != square) { // If pice has changed square
-            // piece.square = findPieceSquare(piece);
             piece.moved = true;
             playersTurn = {"white":"black", "black":"white"}[playersTurn]   // Change the player that plays next
             saveState();

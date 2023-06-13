@@ -1,8 +1,8 @@
 
 // Set functions isThreatened and isnotThreatened for pieces
 PIECES.forEach( (piece)=> {
-    piece.isThreatened = ()=> /*piece.square*/ findPieceSquare(piece).isThreatened();
-    piece.isnotThreatened = ()=> /*piece.square*/ findPieceSquare(piece).isnotThreatened();
+    piece.isThreatened = ()=> findPieceSquare(piece).isThreatened();
+    piece.isnotThreatened = ()=> findPieceSquare(piece).isnotThreatened();
 })
 
 // Set functions isThreatened and isnotThreatened for squares
@@ -31,7 +31,7 @@ SQUARES.forEach( (square)=> {
     }
     
     // Boolean
-    square.isnotThreatened = (color="") => square.isThreatened(color).length === 0;
+    square.isnotThreatened = (color) => square.isThreatened(color).length === 0;
 })
 
 

@@ -22,40 +22,30 @@ document.querySelectorAll(".square").forEach( sq=> {
     SQUARES[id] = sq;
 });
 
-//------------------ Functions -----------------------
 
 function initializePieces() {
     PIECES.forEach((piece)=> {
-        // console.log( piece.id, initialState[piece.id]);
         piece.color = piece.classList[1];
-        // piece.square = ()=> findPieceSquare(piece);
-        piece.square = document.querySelector(`#${initialState[piece.id]}`);
         piece.moved = false;
+        piece.square = document.querySelector(`#${initialState[piece.id]}`);
 
-        makeMove(piece); // Set event-listeners for the piece
+        // Set event-listeners for the piece
+        makeMove(piece);
+
+        // Place it on the right square
         putPieceOnSquare(piece);
         if (promotedPieces[piece.id] != undefined)
             promotePawn(piece, promotedPieces[piece.id]);
 
         piece.square = findPieceSquare(piece);  // For safety.. If you are sure delete it!
     });
+
     SQUARES.forEach( (square)=> {
         square.num = Number(square.id.replace("sq", "")); // Get square's number
         square.row =  Number.parseInt(square.num/8);
         square.column = square.num%8;
     })
+
     findAllPiecesMoves();
 }
-
-// function placePieces(piece,i, boardLeft, boardTop) {
-//     if (piece.square == null) {
-//         piece.style.left = boardLeft + i%8*squareSize + "px";
-//         piece.style.top = boardTop + (Math.floor(i/8) + 4*Math.floor(i/16) +.5)*squareSize + "px";
-//         piece.square = findPieceSquare(piece);
-//     }
-    
-//     piece.setAttribute('style',`left:${boardLeft + i%8*squareSize}px;
-//         top:${boardTop + (Math.floor(i/8) + 4*Math.floor(i/16) +.5)*squareSize}px`);
-
-// }
 

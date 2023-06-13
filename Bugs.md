@@ -1,6 +1,8 @@
 ## CHESS:
 
-1. piece.square: Try to remove all the comments.
+### Remember in any change of the code to update the chess-README.md fie (in draft folder).
+
+- 1. piece.square was replaced by findPieceSquare(piece): Remove all the comments.
 
 - 2. pwan promotion: After save and restore from session it becomes pawn again.
 
@@ -10,14 +12,19 @@
 5. gameEnded: Think about it..
 6. isnotThreatened: Throws error when game ends.
 
-7. Global variables etc. eg. findMovesPiece
-8. isThreatened? When should it be called? If opponent plays?
+7. checkKings()
 
-9. Optimize structure so state can be easily saved! !!!
-10. Save piece.moved
+8. Global variables etc. eg. findMovesPiece
+9. isThreatened? When should it be called? If opponent plays?
 
-11. Castle: save in memory (see photo)
+10. Optimize structure so state can be easily saved! !!!
+11. Save piece.moved
 
-12. Frontend
+12. Castling: save in memory (see photo)
+
+13. Check putPieceOnSquare if(!square) for the case piece is moved by the user outside of the board
+
+14. Frontend
+15. Possible problems: Changed `let` to `const` in many places..
 
 

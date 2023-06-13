@@ -27,7 +27,7 @@ def index():
 
 @app.route('/chess', methods=["GET", "POST"])
 def chess():
-    """ Path of any project """
+    """ Path of the chess project """
     # session.clear()
 
     if "state" not in session:

@@ -1,22 +1,27 @@
 
 function findAllPiecesMoves(){   // Called in initialization
-    let findMovesFunctions = {'rook':findMovesRook, 'horse':findMovesHorse,
+    const findMovesFunctions = {'rook':findMovesRook, 'horse':findMovesHorse,
         'bishop':findMovesBishop, 'pawn':findMovesPawn, 'queen':findMovesQueen, 'king':findMovesKing};
-    findMovesPiece = (piece, pieceType) => {
-        let findMovesFunction = findMovesFunctions[pieceType];
+    
+    // Returns a list of all the allowed squares for a specific piece
+    function findMovesPiece(piece, pieceType) {
+        let pieceMovesFunction = findMovesFunctions[pieceType];
 
-        piece.findMoves = function() {
-            let square = findPieceSquare(piece); //piece.square;
+        piece.findMoves = () => {
+            let square = findPieceSquare(piece);
             if (!square) return [];
             
-            let moves = findMovesFunction(square, piece);
-            return moves.map( m=> { // map int list to objects list
+            let moves = pieceMovesFunction(square, piece);
+            // map int-list to objects-list
+            return moves.map( (m) => {
                     let moveSq = BOARD.querySelector("#sq"+m);
-                    if(moveSq && (!moveSq.piece || moveSq.piece.color!=piece.color)) // empty or opponent square
+                    // If allowed square (empty or opponent's) return the square, else undefined
+                    if( moveSq && (!moveSq.piece || moveSq.piece.color!=piece.color) )
                         return moveSq;
                 });
         }
     }
+
     PIECES.forEach( piece => findMovesPiece(piece, piece.classList[2]));
 }
 
@@ -121,7 +126,7 @@ function findMovesPawn(square, piece) {   // PAWN MOVES
     
     // EN PASSANT
     if(pawnDoubleMove) {
-        let enPNum = findPieceSquare(pawnDoubleMove).num;//pawnDoubleMove.square.num;
+        let enPNum = findPieceSquare(pawnDoubleMove).num;
         if(enPNum == square.num+1) {
             moves.push(square.num+front+1);
             enPassant = piece;
@@ -141,23 +146,26 @@ function findMovesQueen(square, piece) {   // QUEEN MOVES
 }
 
 function findMovesKing(square, piece) {   // KING MOVES
-    let moves = [square.num, square.num-8, square.num+8];
+    const sqNum = square.num;
+    let moves = [sqNum, sqNum-8, sqNum+8];
     let rooks = document.querySelectorAll(".rook."+piece.color);
     
-    if(square.column>0) moves.push(square.num-1, square.num-9, square.num+7);
-    if(square.column<7) moves.push(square.num+1, square.num+9, square.num-7);
+    if(square.column>0) moves.push(sqNum-1, sqNum-9, sqNum+7);
+    if(square.column<7) moves.push(sqNum+1, sqNum+9, sqNum-7);
 
     // ROKE / CASTLING
     let i=-1;   // Iterator for castling
-    if(!piece.moved && !rooks[0].moved && isEmptySq(square.num-1)&&isEmptySq(square.num-2)&&isEmptySq(square.num-3)) {
-        for(i=0; i<3; i++)  // Check if there are threatened squares for big roke
-            if( !SQUARES[square.num-i].isnotThreatened(piece.color)) break;
-        if(i==3) moves.push(square.num-2);
+    // Check if there are threatened squares for big roke
+    if(!piece.moved && !rooks[0].moved && isEmptySq(sqNum-1)&&isEmptySq(sqNum-2)&&isEmptySq(sqNum-3)) {
+        for(i=0; i<3; i++)
+            if( !SQUARES[sqNum-i].isnotThreatened(piece.color)) break;
+        if(i==3) moves.push(sqNum-2);
     }
-    if(!piece.moved && !rooks[1].moved && isEmptySq(square.num+1)&&isEmptySq(square.num+2)) {
-        for(i=0; i<3; i++)  // Check if there are threatened squares for small roke
-            if( !SQUARES[square.num+i].isnotThreatened(piece.color)) break;
-        if(i==3) moves.push(square.num+2);
+    // Check if there are threatened squares for small roke
+    if(!piece.moved && !rooks[1].moved && isEmptySq(sqNum+1)&&isEmptySq(sqNum+2)) {
+        for(i=0; i<3; i++)
+            if( !SQUARES[sqNum+i].isnotThreatened(piece.color)) break;
+        if(i==3) moves.push(sqNum+2);
     }
 
     return moves;
@@ -166,8 +174,8 @@ function findMovesKing(square, piece) {   // KING MOVES
 
 
 
-function isEmptySq(numOfSquare) {
-    return BOARD.querySelector("#sq"+ numOfSquare).piece? false: true;
+function isEmptySq(squareId) {
+    return BOARD.querySelector("#sq"+ squareId).piece? false: true;
 }
 
 function showMoves(moves) {
