@@ -17,13 +17,14 @@ html, body{
     overflow: hidden;
 }
 
-.board{
+.main{
     background-color: var(--base);
+    border-radius: 0 0 1rem 1rem;
 }
 
 .utilities {
-    background-color: var(--base);
-    border-radius: 0 0 1rem 1rem;
+    display: grid;
+    justify-content: start;
     padding: .5rem;
 }
 

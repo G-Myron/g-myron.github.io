@@ -3,13 +3,11 @@ var pawnDoubleMove=null, enPassant=null;
 
 /* GAME TERMINATION */
 
-function endGame(color) {
-    color = {"white":"black", "black":"white"}[color]; //color=="white"? "black":"white";
-    const winnerMsg = color+" wins!";
+function endGame() {
+    const winnerMsg = playersTurn+" wins!";
     const winnerBox = document.querySelector("#winnerCard");
-    winnerBox.querySelector(".winner-msg").innerHTML = winnerMsg.toUpperCase();
+    winnerBox.querySelector(".winner-msg").textContent = winnerMsg.toUpperCase();
     winnerBox.classList.toggle("visible-flex");
-    gameEnded = true;
     clearSavedState();
 }
 

@@ -16,9 +16,9 @@ function findPieceSquare(piece) { // Returns the square that contains this piece
 }
 
 function eatPiece(piece) {
-    // If king is eaten, game ends
+    // If king is eaten, game ends, return
     if(piece.classList.contains("king"))
-        endGame(piece.color);
+        return endGame();
     
     let n = document.querySelectorAll(`.${piece.color}.eaten`).length; // How many of this color are eaten
     let side = piece.color=="black"? BOARD.getBoundingClientRect().width : -squareSize; // Pick side to send the piece
@@ -46,7 +46,7 @@ function putPieceOnSquare(piece, oldSquare=null) { // returns false if piece was
 
     // Outside of board because eaten (or falsly moved? TODO)
     if(!square) {
-        // console.log(piece.classList);
+        // TODO: console.log(piece.classList);
         eatPiece(piece);
         return false;
     }
@@ -80,7 +80,7 @@ function putPieceOnSquare(piece, oldSquare=null) { // returns false if piece was
     }
 
     // Square is empty and availiable
-    if(!square.piece) {
+    if( !square.piece ) {
         centerInSquare(square, piece);
         return true;
     }

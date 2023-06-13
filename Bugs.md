@@ -8,9 +8,9 @@
 
 3. initializePieces(): work with null values and eaten pieces, work with initial value if session is empty.
 
-4. gameEnd(): Optimize it & Check when it is called (if the saved session is a finished game will it be called?)
-5. gameEnded: Think about it..
-6. isnotThreatened: Throws error when game ends.
+- 4. gameEnd(): Optimize it & if the saved session is a finished game will it be called?
+5. Pawn promotion after reload
+- 6. isnotThreatened: Throws error when game ends.
 
 7. checkKings()
 

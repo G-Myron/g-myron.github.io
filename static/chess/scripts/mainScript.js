@@ -18,7 +18,6 @@ SQUARES.sort( (a,b) => {
 const squareSize = Number.parseFloat(getComputedStyle(SQUARES[0]).height);
 var boardTop = BOARD.offsetTop;
 var boardLeft = BOARD.offsetLeft;
-var gameEnded = false;  // store to memory;
 var playersTurn = "playersTurn" in dataInput? dataInput["playersTurn"] : "white";
 const initialState = "pieces" in dataInput? dataInput["pieces"] : calcInitState();
 var promotedPieces = "promoted" in dataInput? dataInput["promoted"] : {};
