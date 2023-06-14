@@ -22,6 +22,10 @@ var playersTurn = "playersTurn" in dataInput? dataInput["playersTurn"] : "white"
 const initialState = "pieces" in dataInput? dataInput["pieces"] : calcInitState();
 var promotedPieces = "promoted" in dataInput? dataInput["promoted"] : {};
 
+var pawnDoubleMove=null, enPassant=null;
+var pawnPromotion=false; // true only while the promotion tab is open
+
+
 
 //------------------------- MAIN --------------------------------
 window.onload = ()=> {

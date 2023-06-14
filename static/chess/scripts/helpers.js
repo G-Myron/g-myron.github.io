@@ -16,7 +16,7 @@ function getState() {
 
     PIECES.forEach( piece => {
         let sq = piece.square;
-        state.pieces[piece.id] = sq===null? null: sq.id;
+        state.pieces[piece.id] = sq? sq.id : null;
     });
     return state
 }
@@ -25,9 +25,8 @@ function getState() {
 function saveState() {
     let state = getState();
 
+    // Pass parameter from JS and with Post request
     localStorage["chessDataInput"] = JSON.stringify(state);
-
-    // Pass parameter with Post request
     fetch('/chess', {method:'POST', body: JSON.stringify(state)});
 }
 // Save state periodicaly

@@ -9,7 +9,7 @@
 3. initializePieces(): work with null values and eaten pieces, work with initial value if session is empty.
 
 - 4. gameEnd(): Optimize it & if the saved session is a finished game will it be called?
-5. Pawn promotion after reload
+- 5. Pawn promotion after reload
 - 6. isnotThreatened: Throws error when game ends.
 
 7. checkKings()
@@ -18,13 +18,15 @@
 9. isThreatened? When should it be called? If opponent plays?
 
 10. Optimize structure so state can be easily saved! !!!
-11. Save piece.moved
+11. Save piece.moved - Or better not use it at all, find a better way
+12. Organize the placing of eaten pieces
 
-12. Castling: save in memory (see photo)
+13. Castling: save in memory (see photo)
 
-13. Check putPieceOnSquare if(!square) for the case piece is moved by the user outside of the board
+14. Check putPieceOnSquare if(!square) for the case piece is moved by the user outside of the board:
+    If you move a king out of board game ends.
 
-14. Possible problems: Changed `let` to `const` in many places..
-15. Frontend
-16. All TODOs in comments
+15. Possible problems: Changed `let` to `const` in many places..
+16. Frontend
+17. All TODOs in comments
 

@@ -35,8 +35,10 @@ function centerInSquare(square, piece) {
     piece.style.left = square.getBoundingClientRect().left +'px';
     piece.style.top = square.getBoundingClientRect().top +'px';
     square.piece = piece;
+    
+    // If a pawn reaches the end it promotes
     if(piece.classList.contains("pawn") && (square.row<1 || square.row>6))
-        pawnPromotion(piece);    // If a pawn reaches the end it promotes
+        openPromotion(piece);
 }
 
 
@@ -47,6 +49,7 @@ function putPieceOnSquare(piece, oldSquare=null) { // returns false if piece was
     // Outside of board because eaten (or falsly moved? TODO)
     if(!square) {
         // TODO: console.log(piece.classList);
+        console.log(square);
         eatPiece(piece);
         return false;
     }

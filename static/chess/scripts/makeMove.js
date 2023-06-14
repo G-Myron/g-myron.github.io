@@ -44,15 +44,16 @@ function makeMove(piece) { // Called in initialization
             putPieceOnSquare(piece, square);
         }
 
-        // If piece has changed square
-        if(piece.square != square) {
-            piece.moved = true;
-            playersTurn = {"white":"black", "black":"white"}[playersTurn]   // Change the player that plays next
-            saveState();
+        // If piece has changed square and we're not during pawn promotion
+        if(piece.square != square && !pawnPromotion) {
+            finishMove(piece);
         }
 
-        hideAllMoves();
-        checkKings();
+        // TODO: Optimize
+        else {
+            hideAllMoves();
+            checkKings();
+        }
     }
     
     
@@ -63,5 +64,14 @@ function makeMove(piece) { // Called in initialization
         let currentSquare = findSquare(event.clientX, event.clientY);
         if(currentSquare) currentSquare.piece = null;
     }
+}
+
+function finishMove(piece) {
+    console.log("SAVE STATE");
+    piece.moved = true;
+    playersTurn = {"white":"black", "black":"white"}[playersTurn]   // Change the player that plays next
+    saveState();
+    hideAllMoves();
+    checkKings();
 }
 

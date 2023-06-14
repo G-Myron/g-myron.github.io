@@ -1,5 +1,4 @@
 let promotionPawn, promotionBoard; // Used only in this file
-var pawnDoubleMove=null, enPassant=null;
 
 /* GAME TERMINATION */
 
@@ -37,23 +36,26 @@ function checkKings() {
 
 /* PAWN PROMOTION */
 
-function pawnPromotion(pawn) {  // Open the options to chose
+function openPromotion(pawn) {  // Open the options to chose
+    pawnPromotion = true;
     promotionBoard = document.querySelector("#"+pawn.color+"-promotion");
-    promotionBoard.classList.toggle("visible-flex");
+    promotionBoard.classList.add("visible-flex");
     promotionPawn = pawn;
 }
 
-function promotePawn(pawn, pieceName) {
+function changePromoted(pawn, pieceName) { // Change the type of the piece from pawn to the selected
+    pawn.type = pieceName;
     pawn.classList.replace("pawn", pieceName);
     pawn.src = staticPath+'/pieces/'+pawn.color[0]+'-'+pieceName+".png";
-    promotedPieces[pawn.id] = pieceName;
 }
 
-function pawnPromote(pieceName="queen") {  // Choose from the options
-    promotePawn(promotionPawn, pieceName);
+function promotePawn(pieceName="queen") {  // Choose from the options - Called from UIs buttons
+    promotedPieces[promotionPawn.id] = pieceName;
+    changePromoted(promotionPawn, pieceName);
     findPieceMoves(promotionPawn, pieceName);
-    promotionBoard.classList.toggle("visible-flex");
-    saveState();
+    promotionBoard.classList.remove("visible-flex");
+    finishMove(promotionPawn);
+    pawnPromotion = false;
 }
 
 

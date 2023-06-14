@@ -99,7 +99,7 @@ The only CSS file.
         #### TODO
         Fucked up...
 
-    - `pawnPromotion`, `promotePawn`, `pawnPromote`
+    - `openPromotion`, `changePromoted`, `promotePawn`
 
         #### TODO
         Improve the names, code, etc
