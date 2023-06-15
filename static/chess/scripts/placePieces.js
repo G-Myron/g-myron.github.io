@@ -17,7 +17,7 @@ function findPieceSquare(piece) { // Returns the square that contains this piece
 
 function eatPiece(piece) {
     // If king is eaten, game ends, return
-    if(piece.classList.contains("king"))
+    if(piece.type==="king")
         return endGame();
     
     let n = document.querySelectorAll(`.${piece.color}.eaten`).length; // How many of this color are eaten
@@ -37,32 +37,37 @@ function centerInSquare(square, piece) {
     square.piece = piece;
     
     // If a pawn reaches the end it promotes
-    if(piece.classList.contains("pawn") && (square.row<1 || square.row>6))
+    if(piece.type==="pawn" && (square.row<1 || square.row>6))
         openPromotion(piece);
 }
 
 
 // Place piece to piece.square
-function putPieceOnSquare(piece, oldSquare=null) { // returns false if piece was not placed
+// return false if piece was not placed
+function putPieceOnSquare(piece, oldSquare=null) {
     let square = piece.square;
 
-    // Outside of board because eaten (or falsly moved? TODO)
+    // Place outside of board
     if(!square) {
-        // TODO: console.log(piece.classList);
-        console.log(square);
-        eatPiece(piece);
+        if(!oldSquare)  // Wasn't moved by the user, so was previously eaten and restored
+            eatPiece(piece);
         return false;
     }
+
+    // if (!oldSquare) {
+    //     centerInSquare(square, piece);
+    //     return true;
+    // }
 
     let sqDiff = oldSquare? square.num-oldSquare.num : NaN;
 
     // Check if this move is allowed
-    if(piece.movesAllowed && ! piece.movesAllowed.includes(square)) {
+    if(piece.movesAllowed && !piece.movesAllowed.includes(square)) {
         return false;
     }
     
     // Roke-Castling
-    if( !piece.moved && piece.classList.contains("king") && oldSquare) {
+    if( !piece.moved && piece.type==="king") { //&& oldSquare
         castling(piece, sqDiff);
     }
 
@@ -72,9 +77,11 @@ function putPieceOnSquare(piece, oldSquare=null) { // returns false if piece was
         let enPDiff = Math.abs(enPSquare.num-square.num);
         if(enPDiff==8) eatPiece(enPSquare.piece, enPSquare.piece.color);
     }
-    if(sqDiff!=0) pawnDoubleMove=enPassant = null;    // Initialize en-passant global variables
-    if(!piece.moved && piece.classList.contains("pawn") && oldSquare) { // Check if pawn made double start for en-passant
-        if(Math.abs(sqDiff)==16) pawnDoubleMove=piece;
+    // console.log(oldSquare);
+    // Reset en-passant global variables on each move
+    if(sqDiff!=0) pawnDoubleMove=enPassant = null;
+    if( !piece.moved && piece.type==="pawn" && Math.abs(sqDiff)==16 ) { // Check if pawn made double start for en-passant
+        pawnDoubleMove = piece;
     }
 
     // Square is occupied by opponent

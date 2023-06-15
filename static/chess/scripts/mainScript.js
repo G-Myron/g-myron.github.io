@@ -1,13 +1,11 @@
-// TODO: Categorize these constants..
-
 const staticPath = "static/chess"; // JINJA
 const playerColor = "white" //prompt("Choose a color:"); // TODO: Future implementation
 
+// DOM Elements
 const BOARD = document.querySelector('.board');
 const PIECES = document.querySelectorAll('.piece');
 const WHITES = document.querySelectorAll('.piece.white');
 const BLACKS = document.querySelectorAll('.piece.black');
-
 // Create list of squares sorted by id number
 const SQUARES = Array.from(BOARD.querySelectorAll(".square"));
 SQUARES.sort( (a,b) => {
@@ -18,12 +16,13 @@ SQUARES.sort( (a,b) => {
 const squareSize = Number.parseFloat(getComputedStyle(SQUARES[0]).height);
 var boardTop = BOARD.offsetTop;
 var boardLeft = BOARD.offsetLeft;
-var playersTurn = "playersTurn" in dataInput? dataInput["playersTurn"] : "white";
 const initialState = "pieces" in dataInput? dataInput["pieces"] : calcInitState();
+var playersTurn = "playersTurn" in dataInput? dataInput["playersTurn"] : "white";
 var promotedPieces = "promoted" in dataInput? dataInput["promoted"] : {};
 
 var pawnDoubleMove=null, enPassant=null;
 var pawnPromotion=false; // true only while the promotion tab is open
+var promotionPawn, promotionBoard; // Used only in gameRules
 
 
 

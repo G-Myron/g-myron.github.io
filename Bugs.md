@@ -15,7 +15,7 @@
 8. Save piece.moved - Or better not use it at all, find a better way
 
 9. Castling: save in memory (see photo)
-10. Check putPieceOnSquare if(!square) for the case piece is moved by the user outside of the board:
+- 10. Check putPieceOnSquare if(!square) for the case piece is moved by the user outside of the board:
     If you move a king out of board game ends.
 
 11. Possible problems: Changed `let` to `const` in many places..

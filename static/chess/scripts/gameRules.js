@@ -1,4 +1,3 @@
-let promotionPawn, promotionBoard; // Used only in this file
 
 /* GAME TERMINATION */
 

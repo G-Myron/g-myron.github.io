@@ -38,14 +38,14 @@ function makeMove(piece) { // Called in initialization
         piece.square = findPieceSquare(piece);
 
         // If piece was not placed, return in previous position
-        if(!putPieceOnSquare(piece, square)) { 
+        if(!putPieceOnSquare(piece, square)) {
             [piece.style.left, piece.style.top] = startPos;
             piece.square = findPieceSquare(piece);
             putPieceOnSquare(piece, square);
         }
 
         // If piece has changed square and we're not during pawn promotion
-        if(piece.square != square && !pawnPromotion) {
+        if( piece.square != square && !pawnPromotion ) {
             finishMove(piece);
         }
 
@@ -67,7 +67,6 @@ function makeMove(piece) { // Called in initialization
 }
 
 function finishMove(piece) {
-    console.log("SAVE STATE");
     piece.moved = true;
     playersTurn = {"white":"black", "black":"white"}[playersTurn]   // Change the player that plays next
     saveState();
