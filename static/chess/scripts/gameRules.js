@@ -6,26 +6,31 @@ function endGame() {
     const winnerBox = document.querySelector("#winnerCard");
     winnerBox.querySelector(".winner-msg").textContent = winnerMsg.toUpperCase();
     winnerBox.classList.toggle("visible-flex");
+    // Clear memory
     clearSavedState();
+    // Let user hide the winner and see the board
+    winnerBox.onclick = () => winnerBox.firstElementChild.style.display = 'none';
 }
 
 /* CHECK - ROUA */
 
 function checkKings() {
-    const king = playersTurn=='white'? document.querySelector("#w-king"): document.querySelector("#b-king");
-    const threatened = document.querySelectorAll(".threatened")
+    let king = playersTurn=='white'? document.querySelector("#w-king"): document.querySelector("#b-king");
+    let threatened = document.querySelectorAll(".threatened")
 
-    // Document it.. Probably has problems too
-
-    if( !king.isnotThreatened() ) {
+    if( king.isThreatened() ) {
+        console.log(king.getThreats());
         createThreatened(king);
-        king.isThreatened().forEach( piece=> createThreatened(piece));
+        king.getThreats().forEach( piece=> createThreatened(piece));
     }
-    else if(threatened) threatened.forEach( p=> p.remove());
+    else if(threatened) {
+        threatened.forEach( p=> p.remove());
+    }
 
-    function createThreatened(piece) {  // Creates fake piece to see if it would be threatened in that position
+    // Creates fake piece to see if it would be threatened in that position
+    function createThreatened(piece) {
         let sq = piece.square, childSq = document.createElement('div');
-        if(sq.querySelector('.threatened')!=null) return; // Already marked
+        if( sq.querySelector('.threatened')!=null ) return; // Already marked
 
         childSq.classList.add('threatened');
         sq.appendChild(childSq);

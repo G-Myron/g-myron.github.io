@@ -109,7 +109,7 @@ The only CSS file.
         Called when you try to move king.
         If moved 2 places, places rook.
 
-    **helpers.js**
+    **memoryHelpers.js**
     - `calcInitState`
 
         Used in mainScript.js to find the initial state, if not saved to be retrieved.

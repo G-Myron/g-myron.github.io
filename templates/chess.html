@@ -12,7 +12,7 @@
     <script id="dataInput">var dataInput = JSON.parse(
         "chessDataInput" in localStorage? localStorage["chessDataInput"] : '{{initialState | tojson}}')
     </script>
-    <script src="{{static}}/scripts/helpers.js"></script>
+    <script src="{{static}}/scripts/memoryHelpers.js"></script>
     <script src="{{static}}/scripts/placePieces.js"></script>
     <script src="{{static}}/scripts/makeMove.js" defer></script>
     
@@ -21,7 +21,6 @@
     <script src="{{static}}/scripts/initialization.js" defer></script>
     <script src="{{static}}/scripts/findMoves.js" defer></script>
     <script src="{{static}}/scripts/gameRules.js" defer></script>
-    <script src="{{static}}/scripts/initializeThreatened.js" defer></script>
 </head>
 <body>
     <div class="main">
@@ -52,7 +51,7 @@
         </table>
         <div class="utilities">
             <button id="restartButton" class="adminButton"
-                onclick="clearSavedState(); location.reload();location.reload();">
+                onclick="clearSavedState(); location.reload();">
                 RESTART</button>
         </div>
     </div>

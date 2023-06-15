@@ -156,13 +156,13 @@ function findMovesKing(square, piece) {   // KING MOVES
     // Check if there are threatened squares for big roke
     if(!piece.moved && !rooks[0].moved && isEmptySq(sqNum-1)&&isEmptySq(sqNum-2)&&isEmptySq(sqNum-3)) {
         for(i=0; i<3; i++)
-            if( !SQUARES[sqNum-i].isnotThreatened(piece.color)) break;
+            if( SQUARES[sqNum-i].isThreatened(piece.color) ) break;
         if(i==3) moves.push(sqNum-2);
     }
     // Check if there are threatened squares for small roke
     if(!piece.moved && !rooks[1].moved && isEmptySq(sqNum+1)&&isEmptySq(sqNum+2)) {
         for(i=0; i<3; i++)
-            if( !SQUARES[sqNum+i].isnotThreatened(piece.color)) break;
+            if( SQUARES[sqNum+i].isThreatened(piece.color) ) break;
         if(i==3) moves.push(sqNum+2);
     }
 
