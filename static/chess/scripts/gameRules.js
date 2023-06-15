@@ -24,7 +24,7 @@ function checkKings() {
     else if(threatened) threatened.forEach( p=> p.remove());
 
     function createThreatened(piece) {  // Creates fake piece to see if it would be threatened in that position
-        let sq = findPieceSquare(piece), childSq = document.createElement('div');
+        let sq = piece.square, childSq = document.createElement('div');
         if(sq.querySelector('.threatened')!=null) return; // Already marked
 
         childSq.classList.add('threatened');
@@ -65,7 +65,7 @@ function castling(king, sqDiff) {
     if(sqDiff==2 || sqDiff==-2) {
         const rook = document.querySelectorAll(".rook."+ king.color)[(sqDiff+2)/4]; // rooks[0/1]
         const rookSq = document.querySelector("#sq"+(king.square.num - sqDiff/2)) // id+-1
-        findPieceSquare(rook).piece = null;
+        rook.square.piece = null;
         centerInSquare(rookSq, rook);
         rook.square = rookSq;
     }

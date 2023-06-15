@@ -8,7 +8,7 @@ function findPieceMoves(piece) {// Called on initialization
 
     // Function that returns a list of all the allowed squares for this piece
     piece.findMoves = () => {
-        let square = findPieceSquare(piece);
+        let square = piece.square; //findPieceSquare(piece)
         if (!square) return [];
         
         let moves = pieceMovesFunction(square, piece);
@@ -124,7 +124,7 @@ function findMovesPawn(square, piece) {   // PAWN MOVES
     
     // EN PASSANT
     if(pawnDoubleMove) {
-        let enPNum = findPieceSquare(pawnDoubleMove).num;
+        let enPNum = pawnDoubleMove.square.num;
         if(enPNum == square.num+1) {
             moves.push(square.num+front+1);
             enPassant = piece;

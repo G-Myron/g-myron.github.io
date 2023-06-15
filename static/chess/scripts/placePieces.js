@@ -46,6 +46,7 @@ function centerInSquare(square, piece) {
 // return false if piece was not placed
 function putPieceOnSquare(piece, oldSquare=null) {
     let square = piece.square;
+    // oldSquare==null === piece.moved==false ?
 
     // Place outside of board
     if(!square) {
@@ -54,42 +55,38 @@ function putPieceOnSquare(piece, oldSquare=null) {
         return false;
     }
 
-    // if (!oldSquare) {
-    //     centerInSquare(square, piece);
-    //     return true;
-    // }
-
-    let sqDiff = oldSquare? square.num-oldSquare.num : NaN;
-
     // Check if this move is allowed
     if(piece.movesAllowed && !piece.movesAllowed.includes(square)) {
         return false;
     }
+
     
-    // Roke-Castling
-    if( !piece.moved && piece.type==="king") { //&& oldSquare
+    let sqDiff = oldSquare? square.num-oldSquare.num : NaN;
+    
+    // Roke/Castling
+    if( !piece.moved && piece.type==="king" ) {
         castling(piece, sqDiff);
     }
 
     // En passant
-    if(enPassant==piece && pawnDoubleMove) { // En-Passant
-        let enPSquare = findPieceSquare(pawnDoubleMove);
+    if( enPassant==piece && pawnDoubleMove ) { // En-Passant
+        let enPSquare = pawnDoubleMove.square;
         let enPDiff = Math.abs(enPSquare.num-square.num);
         if(enPDiff==8) eatPiece(enPSquare.piece, enPSquare.piece.color);
     }
-    // console.log(oldSquare);
     // Reset en-passant global variables on each move
     if(sqDiff!=0) pawnDoubleMove=enPassant = null;
-    if( !piece.moved && piece.type==="pawn" && Math.abs(sqDiff)==16 ) { // Check if pawn made double start for en-passant
+    // Check if pawn made double start for en-passant
+    if( !piece.moved && piece.type==="pawn" && Math.abs(sqDiff)==16 ) {
         pawnDoubleMove = piece;
     }
 
     // Square is occupied by opponent
-    if(square.piece && square.piece.color!=piece.color) {
+    if( square.piece && square.piece.color!=piece.color ) {
         eatPiece(square.piece, square.piece.color);
     }
 
-    // Square is empty and availiable
+    // Square is empty and availiable, so move into it
     if( !square.piece ) {
         centerInSquare(square, piece);
         return true;

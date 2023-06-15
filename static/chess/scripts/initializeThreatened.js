@@ -1,5 +1,6 @@
 
 // Set functions isThreatened and isnotThreatened for pieces
+// TODO: Call it somewhere so can be replaced findPieceSquare(piece) by piece.square
 PIECES.forEach( (piece)=> {
     piece.isThreatened = ()=> findPieceSquare(piece).isThreatened();
     piece.isnotThreatened = ()=> findPieceSquare(piece).isnotThreatened();
