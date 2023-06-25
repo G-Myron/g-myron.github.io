@@ -6,7 +6,7 @@
 2. Frontend design (e.g. Organize the placing of eaten pieces)
 
 3. initializePieces(): work with null values and eaten pieces, work with initial value if session is empty.
-4. checkKings(), initializeThread
+- 4. checkKings(), initializeThread
 
 5. Global variables etc. eg. findMovesPiece
 6. isThreatened? When should it be called? If opponent plays?

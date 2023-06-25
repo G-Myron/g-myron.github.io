@@ -32,8 +32,16 @@ function saveState() {
 // Save state periodicaly
 // setInterval(savePositions, 10_000); // every 10s
 
-function clearSavedState() {
-    localStorage.removeItem("chessDataInput");
-    fetch('/chess', {method:'POST', body: '{}'});
+async function clearSavedState() {
+    // Not sure about correct use of await
+    await localStorage.removeItem("chessDataInput");
+    await fetch('/chess', {method:'POST', body: '{}'});
+}
+
+async function restartGame() {
+    console.log("Clearing saved states...");
+    await clearSavedState();
+    console.log("Reloading page");
+    location.reload();
 }
 

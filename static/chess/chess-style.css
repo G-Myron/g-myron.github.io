@@ -24,7 +24,7 @@ html, body{
 
 .utilities {
     display: grid;
-    justify-content: start;
+    grid-auto-flow: column;
     padding: .5rem;
 }
 
@@ -35,7 +35,7 @@ html, body{
     border: none;
     border-radius: 2rem;
     height: 2rem;
-    width: calc(2*var(--size));
+    width: calc(3*var(--size));
     transition: .3s;
 }
 

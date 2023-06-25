@@ -54,5 +54,8 @@ function initializePieces() { // Called only from mainScript on load
         // returns Boolean
         square.isThreatened = (color) => square.getThreats(color).length !== 0;
     });
+    
+    // Check if any king was checked in the saved state
+    checkKings();
 }
 

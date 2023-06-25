@@ -13,6 +13,9 @@ SQUARES.sort( (a,b) => {
     return a.id.substring(2) - b.id.substring(2);
 });
 
+const whiteKing = document.querySelector(".white.king")
+const blackKing = document.querySelector(".black.king")
+
 const squareSize = Number.parseFloat(getComputedStyle(SQUARES[0]).height);
 var boardTop = BOARD.offsetTop;
 var boardLeft = BOARD.offsetLeft;
