@@ -15,24 +15,15 @@ function endGame() {
 /* CHECK - ROUA */
 
 function checkKings() {
-    // let king = playersTurn=='white'? document.querySelector("#w-king"): document.querySelector("#b-king");
-    document.querySelectorAll(".threatened").forEach( p=> p.remove()); // Clear the red squares
+    // Clear the red squares
+    document.querySelectorAll(".threatened").forEach( sq => sq.classList.remove('threatened') );
     
+    // Find the new red squares
     for (let king of [blackKing, whiteKing]) {
         if( king.isThreatened() ) {
-            console.log(king.getThreats());
-            createThreatened(king);
-            king.getThreats().forEach( piece=> createThreatened(piece));
+            king.square.classList.add('threatened')
+            king.getThreats().forEach( piece => piece.square.classList.add('threatened'));
         }
-    }
-
-    // Creates fake piece to see if it would be threatened in that position
-    function createThreatened(piece) {
-        let sq = piece.square, childSq = document.createElement('div');
-        if( sq.querySelector('.threatened')!=null ) return; // Already marked
-
-        childSq.classList.add('threatened');
-        sq.appendChild(childSq);
     }
 }
 

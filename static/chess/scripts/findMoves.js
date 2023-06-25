@@ -178,15 +178,12 @@ function isEmptySq(squareId) {
 
 function showMoves(moves) {
     moves.forEach(sq=> {
-        if(sq==null || sq.childElementCount) return;
-        let childSq = document.createElement('div');
-        childSq.classList.add('availiable');
-        sq.appendChild(childSq);
+        if(sq!=null) sq.classList.add('availiable');
     });
 }
 
 // TODO: Optimize function
 function hideAllMoves() {
-    document.querySelectorAll(".availiable").forEach(c=> c.remove())
+    document.querySelectorAll(".availiable").forEach( sq=> sq.classList.remove('availiable'))
 }
 

@@ -40,10 +40,10 @@ function initializePieces() { // Called only from mainScript on load
             else if(square.piece.color === "black") opponents = WHITES;
             else if(square.piece.color === "white") opponents = BLACKS;
 
-            opponents.forEach( (piece)=> {
-                if( piece.type != 'king'   // Don't check for king threatening o for Roke creates infinite loop
-                    && piece.findMoves().includes(square))
-                    threateners.push(piece);
+            opponents.forEach( (opponent)=> {
+                if( opponent.type != 'king'   // Don't check for king threatening o for Roke creates infinite loop
+                    && opponent.findMoves().includes(square))
+                    threateners.push(opponent);
             });
             
             if(wasEmpty) square.piece = null;
