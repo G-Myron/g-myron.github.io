@@ -4,26 +4,28 @@ function findPieceMoves(piece) {// Called on initialization
     const findMovesFunctions = {'rook':findMovesRook, 'horse':findMovesHorse,
         'bishop':findMovesBishop, 'pawn':findMovesPawn, 'queen':findMovesQueen, 'king':findMovesKing};
 
-    const pieceMovesFunction = findMovesFunctions[piece.type];
-
     // Function that returns a list of all the allowed squares for this piece
     piece.findMoves = () => {
         let square = piece.square; //findPieceSquare(piece)
         if (!square) return [];
         
-        let moves = pieceMovesFunction(square, piece);
+        let moves = findMovesFunctions[piece.type](square, piece);
         // map int-list to objects-list
-        return moves.map( (m) => {
-                let moveSq = BOARD.querySelector("#sq"+m);
-                // If allowed square (empty or opponent's) return the square, else undefined
+        return moves.map( (sqId) => {
+                let moveSq = BOARD.querySelector("#sq"+sqId);
+
+                // If allowed square (empty or opponent's) return the square, else null
                 if( moveSq && (!moveSq.piece || moveSq.piece.color!=piece.color) )
                     return moveSq;
+                
+                return null;
             });
     }
 }
 
 
-function findMovesRook(square, piece) {    // ROOK MOVES
+// ROOK MOVES
+function findMovesRook(square, piece) {
     let moves = [square.num];
 
     for(let i=square.num-1; i>square.num-8; i--) {    // Find row
@@ -48,7 +50,8 @@ function findMovesRook(square, piece) {    // ROOK MOVES
     return moves;
 }
 
-function findMovesHorse(square, piece) {   // HORSE MOVES
+// HORSE MOVES
+function findMovesHorse(square, piece) {
     let moves = [square.num];
 
     if(square.column<7) moves.push(square.num-15, square.num+17);
@@ -59,7 +62,8 @@ function findMovesHorse(square, piece) {   // HORSE MOVES
     return moves;
 }
 
-function findMovesBishop(square, piece) {   // BISHOP MOVES
+// BISHOP MOVES
+function findMovesBishop(square, piece) {
     let moves = [square.num];
 
     // for(let i=1; i<8; i++) {
@@ -105,7 +109,8 @@ function findMovesBishop(square, piece) {   // BISHOP MOVES
     return moves;
 }
 
-function findMovesPawn(square, piece) {   // PAWN MOVES
+// PAWN MOVES
+function findMovesPawn(square, piece) {
     let moves = [square.num];
 
     let front = piece.color==="black"? +8:-8;
@@ -138,12 +143,14 @@ function findMovesPawn(square, piece) {   // PAWN MOVES
     return moves;
 }
 
-function findMovesQueen(square, piece) {   // QUEEN MOVES
+// QUEEN MOVES
+function findMovesQueen(square, piece) {
     let moves = findMovesRook(square,piece).concat(findMovesBishop(square,piece));
     return moves;
 }
 
-function findMovesKing(square, piece) {   // KING MOVES
+// KING MOVES
+function findMovesKing(square, piece) {
     const sqNum = square.num;
     let moves = [sqNum, sqNum-8, sqNum+8];
     let rooks = document.querySelectorAll(".rook."+piece.color);

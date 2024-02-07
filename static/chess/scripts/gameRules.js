@@ -16,13 +16,13 @@ function endGame() {
 
 function checkKings() {
     // Clear the red squares
-    document.querySelectorAll(".threatened").forEach( sq => sq.classList.remove('threatened') );
+    document.querySelectorAll(".checked").forEach( sq => sq.classList.remove('checked') );
     
     // Find the new red squares
     for (let king of [blackKing, whiteKing]) {
         if( king.isThreatened() ) {
-            king.square.classList.add('threatened')
-            king.getThreats().forEach( piece => piece.square.classList.add('threatened'));
+            king.square.classList.add('checked')
+            king.getThreats().forEach( piece => piece.square.classList.add('checked'));
         }
     }
 }

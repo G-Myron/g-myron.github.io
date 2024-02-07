@@ -147,7 +147,7 @@ td,th{
     background-color: #ff0;
     opacity: .5;
 }
-.threatened::after {
+.checked::after {
     content: '';
     display: block;
     width: 100%;

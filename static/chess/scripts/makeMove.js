@@ -18,8 +18,6 @@ function makeMove(piece) { // Called in initialization
         startPos = [piece.style.left, piece.style.top];
         [posX, posY] = [e.clientX, e.clientY];
 
-        // console.log(piece);
-        console.log(document.querySelectorAll(".threatened"));
         piece.movesAllowed = piece.findMoves();
         showMoves(piece.movesAllowed);
     }
