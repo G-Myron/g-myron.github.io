@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PoliMi Erasmus Info 2023</title>
+    <link rel="icon" href="static/polimi_logo.jpg">
+    <link rel="stylesheet" href="style.css">
+    <script src="data.js"></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <h1 class="title">Info for Erasmus at PoliMi 2023</h1>
+    <nav>
+        <div class="sections-handler">
+            <button id="open-all" onclick="openAll()">Open All</button>
+            <button id="close-all" onclick="closeAll()">Close All</button>
+        </div>
+        <div class="sections-handler">
+            <button onclick="window.open('https://github.com/G-Myron/ErasmusPoliMi', '_blank')">GIT Repo</button>
+            <button id="save-json" onclick="saveData()">Download JSON file</button>
+        </div>
+    </nav>
+    <div class="main">
+        <!-- <section id="general">
+            <legend>General</legend>
+            <div class="lines">
+                <a href="https://g-myron.github.io/ErasmusPoliMi/">My Guide for Erasmus Patras-Milan in spring 2023</a>
+                <p>Τα κείμενα είναι σε μαύρο φόντο, τα links σε άσπρο</p>
+                <p>Καινούριες πληροφορίες που προστίθενται από τον χρήστη αποθηκεύονται μόνο προσωρινά. Για μόνιμη αποθήκευση κατεβάστε το JSON αρχείο από το κουμπί επάνω δεξιά..</p>
+            </div>
+        </section> -->
+
+        <div class="modal" style="display: none;" /*onclick="submitCancel()"*/>
+            <div class="modal-content">
+                <div>
+                    <label for="line-text">text</label>
+                    <input type="text" name="line-text" id="line-text">
+                </div>
+                <div>
+                    <label for="line-link">link</label>
+                    <input type="text" name="line-link" id="line-link">
+                </div>
+                <iframe src="" frameborder="1"></iframe>
+                <div class="form-btns">
+                    <button onclick="submitCancel()" class="cancel-btn">Cancel</button>
+                    <button onclick="submitLine()" class="submit-btn">OK</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

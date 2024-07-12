@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+
+<html lang="en-US" style="font-size: 16px;">
+  <head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Myron">
+    <meta name="description" content="My 1st HTML">
+    <meta name="keywords" content="HTML, Web">
+    <title>Myron HTML</title>
+    <link rel="icon" href="https://www.flaticon.com/svg/vstatic/svg/4179/4179568.svg?token=exp=1616525237~hmac=ead0f0ffab3337257a07519d937ea2e0">
+    <link rel="stylesheet" href="CSS3-Tutorial.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <style>
+      section p{border: 4px solid Magenta;}
+      button{
+        background-color: darkmagenta;
+        color: burlywood;
+      }
+    </style>
+    <script src="JS-Tutorial.js"></script>
+  </head>
+
+  <body class="" id="MainBody">
+
+    <header style="display: flow-root;"> <!-- "display: flow-root;" or "overflow: auto;" to contain the float button.-->
+      <h1 title="Heading 1">My Heading</h1>
+      <h2 title="Heading 2" style="color: darkgreen;"> ΓΕΙΑ στα Ελληνικά</h2>
+      <button type="button" id="themeButton" onclick="changeTheme('MainBody');" style="float: right;"> Dark/Light Theme </button>
+    </header>
+    
+    <div id="topContainer">
+      <p><strong> This is the top container with opacity=0.9</strong></p>
+    <nav>
+      <li><a href="#HTML effects"> Main text <span class="material-icons"> home </span> </a></li>
+      <li><a href="#Inline frames"> Frames <span class="material-icons"> dashboard </span> </a></li>
+      <li><a href="#Java Script"> JavaScript <span class="material-icons"> code </span> </a></li>
+    </nav>
+    </div>
+
+    <section id="HTML effects">
+      <p title="Links">
+        Here is a link for
+        <a href="https://www.youtube.com"> YouTube.<img src="https://www.youtube.com/s/desktop/e9152424/img/favicon_144.png" alt="Image not found" style="width: 25px;"></a>
+        <a target="_blank" href="https://www.youtube.com"> <br>YouTube in new window</a>
+        <button onclick="document.location='https://www.youtube.com'">YouTube</button><br>
+        <a href="https://www.w3schools.com/images/myw3schoolsimage.jpg" download> Download Here!!!</a>
+      </p>
+
+      <div title='Dropdown' style="display: flow-root; background-color: silver;">
+        <div class="dropdown" style="float: left;">
+          <p>This is a Dropdown Menu</p>
+          <div class="dpdown_content">
+            <a href="">First Link</a>
+            <a href="">Second Link</a>
+            <a href="">Third Link</a>
+            <p>Hello World</p>
+          </div>
+        </div>
+        <div class="dropdown" style="float: left; width: 20%;">
+          <img src="https://www.sciencenews.org/wp-content/uploads/2020/02/021120_to_quantum_feat-1028x579.jpg"
+          style='width: 100%'>
+          <img class="dpdown_content" src="https://www.sciencenews.org/wp-content/uploads/2020/02/021120_to_quantum_feat-1028x579.jpg"
+          style="width: 300%">
+        </div>
+      </div>
+
+      <div style="background-color: rgb(100, 110, 100); position: relative;">
+        <button id="button_on_the_back" onclick="alert('Hello')">Hello There</button>
+        <p class="AllStyles" title="Styles">
+          <strong style="color: black;">Styles</strong><br>
+          It is orange on blue background!<br>
+          This is also in arial font and has size 2vw (2% of viewport width).<br>
+          Hey.. It's center-aligned too!<br>
+          Fyrthermore it has 50pixels padding, that is space(left,right,up,down) from the border.
+          And 100pixels margin, that is space(left,right,up,down) outside the border.
+        </p>
+      </div>
+
+      <p title="Formating" style="text-indent: 20px;">
+        This is a paragraph with indent 20pixels...<br>
+        <b> Bold </b>
+        <i> Italic </i>
+        <mark> Marked </mark>
+        <u> Underlined </u>
+        <del> Deleted </del>
+        <br>Better way:<br>
+        <strong>Strong</strong>
+        <em>Emphasised</em>
+        <span style="text-decoration: underline;">Underlined</span>
+        <span style="text-decoration: line-through;">Through-lined</span>
+        <span style="text-decoration: overline;">Overlined</span>
+        <span style="color: blue; background-color: gray; font-size: 150%; font-weight:bold">Styled</span><br>
+        <span style="letter-spacing: 5px; word-spacing: 30px; line-height: 50px;">Letter spacing is 5pix. Words spacing is 30pixels. Line-height=50px</span><br>
+        <span style="text-shadow: 1px 1px 1px blue;">Shadowed.. </span>
+        <span style="text-transform: capitalize;">this is capitalized.</span>
+        <span style="text-transform: uppercase;">Uppercased</span><br>
+        x<sub>1</sub><sup>2</sup><br>
+        <abbr title="Integrated Development Environment"> IDE </abbr>
+        <bdo dir="rtl">Reversed</bdo>
+      </p>
+
+      <pre title="Preformatted" style="font-family:italian;">
+  New Line and tab.
+    Is not paragraph.. It's pre.
+      </pre>
+
+      <div title="Multimedia">Images: <br></div>
+      <figure> <!--class="hided"-->
+        <picture>
+          <source media="(min-width: 1000px)" srcset="https://images.pexels.com/photos/556666/pexels-photo-556666.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
+          <source media="(max-width: 900px)" srcset="https://wallpaperaccess.com/full/379046.jpg">
+          <img src="http://www.asciitable.com/index/asciifull.gif" style="width: 50%;">
+        </picture>
+        <figcaption> Change screen's width<br><br></figcaption>
+        <img src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg" alt="Image not found :(" style="float:right;">
+        <figcaption style="float:right;"> Trees</figcaption>
+        <img src="https://i.giphy.com/media/fuJPZBIIqzbt1kAYVc/giphy.webp" alt="GIF" style="width:30%; clear: both;">
+        <figcaption> My Gif</figcaption>
+        <img src="http://www.asciitable.com/index/asciifull.gif" alt="ASCII Code" style="clear: both;"> <!-- clear: both to follow the float element.-->
+        <figcaption> The 7-bit ASCII Code</figcaption>
+      </figure>
+    </section>
+
+    <section id="Inline frames">
+      <p>This is an "iframe". Click to see it!
+        Go to <a href="/" target="Karras"> the root</a>.
+      </p>
+      <object class="hided" data="https://www.webstepbook.com/samples/ch02-html_excerpt.pdf" width="50%" height="500px">PDF not found</object>
+      <iframe name="Karras" src="https://www.youtube.com/embed/LFKiWc8arL0" style="height:60vh; min-height: 200px; width:40vw; min-width: 300px;" allowfullscreen></iframe>
+      <br><br><button onclick="document.location='Myron.jpg'"> See My Image  </button>
+    </section>
+
+    <section id="Tables-Lists" title="Tables and Lists">
+      <table style="width: 30%;">
+        <caption style="font-weight: bold;">Table No.1</caption>
+        <tr>
+          <th>Hello</th>
+          <th>Hello</th>
+          <th colspan="2">Hello</th>
+        </tr>
+        <tr>
+          <td>Its me</td>
+          <td>Its me</td>
+          <td>Its me</td>
+          <td>Its me</td>
+        </tr>
+      </table>
+
+      <table id="styledTable" style="width: 50%">
+        <caption style="font-weight: bold;">Table No.2</caption>
+        <tr>
+          <th>Name</th>
+          <th>Country</th>
+          <th>Code</th>
+        </tr>
+        <tr>
+          <td>Myron</td>
+          <td>Greece</td>
+          <td>2310</td>
+        </tr>
+        <tr>
+          <td>John</td>
+          <td>USA</td>
+          <td>2920</td>
+        </tr>
+        <tr>
+          <td rowspan="2">Marry, Manuel</td>
+          <td>Italy</td>
+          <td>3467</td>
+        </tr>
+        <tr>
+          <td>Albania</td>
+          <td>2112</td>
+        </tr>
+        <tr>
+          <td>Me</td>
+          <td>My Country</td>
+          <td>23920</td>
+        </tr>
+      </table>
+
+      <div id="lists">
+        Unordered list:
+        <ul>
+          <li>One</li>
+          <li>Two</li>
+          <li>Three</li>
+          <li>Four</li>
+        </ul>
+        Ordered list:
+        <ol start="3" reversed>
+          <li>One</li>
+          <li>Two</li>
+          <li>Three</li>
+          <li>Four</li>
+          <li>Five</li>
+          <li value="10">Ten</li>
+        </ol>
+        Horizontal list:
+        <ul>
+          <li class="inline">One</li>
+          <li class="inline">Two</li>
+          <li class="inline">Three</li>
+          <li class="inline">Four</li>
+        </ul>
+        <li class="inline">One</li>
+        <li class="inline">Two</li>
+        <li class="inline">Three</li>
+        <li class="inline">Four</li>
+      </div>
+    </section>
+    
+    <section id="Java Script">
+      <div>
+        <p id='demoJS'>Hii</p>
+        <script>
+          document.querySelector("#demoJS").innerHTML = 'Hello World';
+          document.write('Hello Doc');
+      </script>
+
+      <br><br><br><br><br><br>
+      <br><br><br><br><br><br>
+
+      </div>
+
+
+      <div>
+        <p id="Scripted paragraph1">Hello World</p>
+        <p id="Scripted paragraph2"></p>
+
+        <button type="button" onclick="Write('Scripted paragraph1')"> Show/Hide Paragraph1 </button>
+        <button type="button" onclick="Write('Scripted paragraph2')"> Show/Hide Paragraph2 </button>
+        <br>
+        <button type="button" onclick="Style('Scripted paragraph1')"> Style Paragraph1 </button>
+        <button type="button" onclick="Style('Scripted paragraph2')"> Style Paragraph2 </button>
+      </div>
+
+      <div>
+        <br>
+        <form action="https://www.yumpu.com/xx/document/read/61075710/typologio-36-nologo" autocomplete="on" oninput="out.value=parseInt(a.value)+parseInt(b.value)">
+          <label for="myinput">Give input:</label>
+          <input type="text" id="myinput" style="font-size: 100%;" readonly placeholder="Read Only"/> <br>
+
+          <input type="radio" id="one" name="numbers">
+          <label for="one">One</label><br>
+          <input type="radio" id="two" name="numbers">
+          <label for="two">Two</label><br>
+
+          <label for="mycountry">Choose Country:</label>
+          <input type="text" id="mycountry" style="font-size: 100%;" placeholder="Countries" list="countries"/>
+          <datalist id="countries">
+            <option value="Greece"></option>
+            <option value="Italy"></option>
+            <option value="USA">United States of America</option>
+          </datalist> <br>
+
+          (0<input type="range" id="a" name="a" value="0" min="0" max="50">50) + 
+          <input type="number" id="b" name="b" value="50" min="0" max="50">
+          =<output name="out" for="a b">50</output> <br>
+
+          <input type="submit" value="Submit (Go to yumpu)">
+          <input type="reset">
+        </form>
+      </div>
+    </section>
+
+    <aside>
+      Hello From Aside!!!
+    </aside>
+
+    <footer title="Background Image">
+      <p class="excepted">This is the footer of the site...! <br> This paragraph is excepted of the style of p........................</p>
+    </footer>
+  </body>
+</html>

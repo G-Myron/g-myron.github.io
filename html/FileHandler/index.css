@@ -1,0 +1,49 @@
+body{
+    background-color: lightsalmon;
+    overflow: hidden;
+}
+
+fieldset{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5vh;
+    min-height: 1.2em;
+    margin: 1vh 25%;
+    border: none;
+    border-radius: 10px;
+    background-color: azure;
+}
+
+output{
+    margin-right: 15%;
+}
+
+input[type="button"]{
+    font-size: 1.2em;
+    background-color: black;
+    color: crimson;
+    border-radius: 10px;
+}
+
+.myFile{
+    display: inline-block;
+    overflow: auto;
+
+    font-size: 2em;
+    min-width: 10em;
+    height: 90vh;
+    border: 2px solid black;
+    color: aqua;
+    background-color: crimson;
+}
+
+#myFileBytes{
+    width: 65%;
+}
+
+#myFileText{
+    width: 34%;
+}
+
+

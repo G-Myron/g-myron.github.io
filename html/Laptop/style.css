@@ -1,0 +1,43 @@
+:root {
+    --panel-color: black;
+    --keyboard-color: #555;
+    --key-color: black;
+    --laptop-size: 90vmin; /* PRIMARY SIZE CONSTANT */
+    --panels-width-fraction: .80;
+    --measurement-unit: calc( var(--laptop-size)*var(--panels-width-fraction) / 35); /* about 1cm in reality for a 35cm keyboard */
+
+    --angX: 25deg;
+    --angY: 30deg;
+    --X: 0px;/*calc(.1*var(--laptop-size));*/
+    --Y: 0px;
+    --initial-rotation: translate(var(--X), var(--Y)) rotateX(var(--angX)) rotateY(var(--angY));
+}
+
+html, body {
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%; */
+    font-size: calc(.03*var(--laptop-size));
+    font-family: Courier, monospace;
+    word-spacing: -5px;
+    color: white;
+    background-color: #212;
+    overflow: visible;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-areas: "helper laptop .";
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: stretch;
+    justify-items: center;
+}
+
+.helpers {
+    grid-area: helper;
+}
+.laptop {
+    grid-area: laptop;
+}

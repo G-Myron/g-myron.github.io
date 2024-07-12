@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Laptop</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="helpers-style.css">
+    <link rel="stylesheet" href="laptop-style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="grid-container">
+        <div class="helpers">
+            <h3 contenteditable="true">HELPERS</h3>
+            <div class="helper rotate-x">
+                <label for="rotateX">RotateX:</label>
+                <input type="range" id="rotateX" max="90" min="-90"
+                    oninput="changeAngleX(this)">
+                <output></output>
+                <label for="rotateX">degrees</label>
+            </div>
+            <div class="helper rotate-y">
+                <label for="rotateY">RotateY:</label>
+                <input type="range" id="rotateY" max="90" min="-90"
+                    oninput="changeAngleY(this)">
+                <output></output>
+                <label for="rotateY">degrees</label>
+            </div>
+            <div class="helper translate-x">
+                <label for="translateX">TranslateX:</label>
+                <input type="range" id="translateX" max="90" min="-90"
+                    oninput="changeX(this)">
+                <output></output>
+                <label for="translateX">pixels</label>
+            </div>
+            <div class="helper translate-y">
+                <label for="translateY">TranslateY:</label>
+                <input type="range" id="translateY" max="90" min="-90"
+                    oninput="changeY(this)">
+                <output></output>
+                <label for="translateY">pixels</label>
+            </div>
+        </div>
+        <div class="laptop">
+            <div class="top-panel panel"> <!-- --size:24; -->
+                <div class="screen"></div> <!-- --size:20; -->
+            </div>
+            <div class="panel-conection">
+                <div class="left-conection"></div>
+                <div class="right-conection"></div>
+            </div>
+            <div class="base-panel panel">
+                <div class="keyboard">
+                    <div class="primary-keys"> <!-- --size:26.8; -->
+                        <div class="top-keys-row">
+                            <div class="key" style="--size:1.5;">
+                                <p>ESC</p>
+                            </div>
+                            <div class="key">
+                                <p>F1</p>
+                            </div>
+                            <div class="key">
+                                <p>F2</p>
+                            </div>
+                            <div class="key">
+                                <p>F3</p>
+                            </div>
+                            <div class="key">
+                                <p>F4</p>
+                            </div>
+                            <div class="key">
+                                <p>F5</p>
+                            </div>
+                            <div class="key">
+                                <p>F6</p>
+                            </div>
+                            <div class="key">
+                                <p>F7</p>
+                            </div>
+                            <div class="key">
+                                <p>F8</p>
+                            </div>
+                            <div class="key">
+                                <p>F9</p>
+                            </div>
+                            <div class="key">
+                                <p>F10</p>
+                            </div>
+                            <div class="key">
+                                <p>F11</p>
+                            </div>
+                            <div class="key">
+                                <p>F12</p>
+                            </div>
+                            <div class="key" style="--size:1.5;">
+                                <p>INS</p>
+                            </div>
+                            <div class="key" style="--size:1.5;">
+                                <p>DEL</p>
+                            </div>
+                        </div>
+                        <div class="numbers-keys-row">
+                            <div class="key" style="--size:1;">
+                                <p>`</p>
+                            </div>
+                            <div class="key">
+                                <p>1</p>
+                            </div>
+                            <div class="key">
+                                <p>2</p>
+                            </div>
+                            <div class="key">
+                                <p>3</p>
+                            </div>
+                            <div class="key">
+                                <p>4</p>
+                            </div>
+                            <div class="key">
+                                <p>5</p>
+                            </div>
+                            <div class="key">
+                                <p>6</p>
+                            </div>
+                            <div class="key">
+                                <p>7</p>
+                            </div>
+                            <div class="key">
+                                <p>8</p>
+                            </div>
+                            <div class="key">
+                                <p>9</p>
+                            </div>
+                            <div class="key">
+                                <p>0</p>
+                            </div>
+                            <div class="key">
+                                <p>-</p>
+                            </div>
+                            <div class="key">
+                                <p>=</p>
+                            </div>
+                            <div class="key" style="--size:3;">
+                                <p>< backspace</p>
+                            </div>
+                        </div>
+                        <div class="letters-keys-row">
+                            <div class="key" style="--size:2;">
+                                <p>Tab</p>
+                            </div>
+                            <div class="key">
+                                <p>Q</p>
+                            </div>
+                            <div class="key">
+                                <p>W</p>
+                            </div>
+                            <div class="key">
+                                <p>E</p>
+                            </div>
+                            <div class="key">
+                                <p>R</p>
+                            </div>
+                            <div class="key">
+                                <p>T</p>
+                            </div>
+                            <div class="key">
+                                <p>Y</p>
+                            </div>
+                            <div class="key">
+                                <p>U</p>
+                            </div>
+                            <div class="key">
+                                <p>I</p>
+                            </div>
+                            <div class="key">
+                                <p>O</p>
+                            </div>
+                            <div class="key">
+                                <p>P</p>
+                            </div>
+                            <div class="key">
+                                <p>[</p>
+                            </div>
+                            <div class="key">
+                                <p>]</p>
+                            </div>
+                            <div class="key" style="--size:2;">
+                                <p>\</p>
+                            </div>
+                        </div>
+                        <div class="letters-keys-row">
+                            <div class="key" style="--size:2.5;">
+                                <p>Caps</p>
+                            </div>
+                            <div class="key">
+                                <p>A</p>
+                            </div>
+                            <div class="key">
+                                <p>S</p>
+                            </div>
+                            <div class="key">
+                                <p>D</p>
+                            </div>
+                            <div class="key">
+                                <p>F</p>
+                            </div>
+                            <div class="key">
+                                <p>G</p>
+                            </div>
+                            <div class="key">
+                                <p>H</p>
+                            </div>
+                            <div class="key">
+                                <p>J</p>
+                            </div>
+                            <div class="key">
+                                <p>K</p>
+                            </div>
+                            <div class="key">
+                                <p>L</p>
+                            </div>
+                            <div class="key">
+                                <p>;</p>
+                            </div>
+                            <div class="key">
+                                <p>'</p>
+                            </div>
+                            <div class="key" style="--size:3.3;">
+                                <p>Enter</p>
+                            </div>
+                        </div>
+                        <div class="letters-keys-row">
+                            <div class="key" style="--size:3.4;">
+                                <p>Shift</p>
+                            </div>
+                            <div class="key">
+                                <p>Z</p>
+                            </div>
+                            <div class="key">
+                                <p>X</p>
+                            </div>
+                            <div class="key">
+                                <p>C</p>
+                            </div>
+                            <div class="key">
+                                <p>V</p>
+                            </div>
+                            <div class="key">
+                                <p>B</p>
+                            </div>
+                            <div class="key">
+                                <p>N</p>
+                            </div>
+                            <div class="key">
+                                <p>M</p>
+                            </div>
+                            <div class="key">
+                                <p>,</p>
+                            </div>
+                            <div class="key">
+                                <p>.</p>
+                            </div>
+                            <div class="key">
+                                <p>/</p>
+                            </div>
+                            <div class="key" style="--size:4.2;">
+                                <p>Shift</p>
+                            </div>
+                        </div>
+                        <div class="keys-row">
+                            <div class="key" style="--size:1.6;">
+                                <p>CTRL</p>
+                            </div>
+                            <div class="key">
+                                <p>Fn</p>
+                            </div>
+                            <div class="key">
+                                <p>Win</p>
+                            </div>
+                            <div class="key">
+                                <p>ALT</p>
+                            </div>
+                            <div class="key"  style="--size:9.5;">
+                                <p>Space</p>
+                            </div>
+                            <div class="key">
+                                <p>ALT</p>
+                            </div>
+                            <div class="key">
+                                <p>CTRL</p>
+                            </div>
+                            <div class="key arrows" style="--size:5.2;">
+                                <div class="key">◄</div>
+                                <div class="key">▲<br>▼</div>
+                                <div class="key">►</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="numbers-keys"> <!-- --size:6.9; -->
+                        
+                            <div class="key home">
+                                <p>HOME</p>
+                            </div>
+                            <div class="key prt-sc">
+                                <p>PRT SC</p>
+                            </div>
+                            <div class="key up">
+                                <p>UP</p>
+                            </div>
+                            <div class="key down">
+                                <p>DN</p>
+                            </div>
+                            
+                            <div class="key numlock">
+                                <p>NUM LOCK</p>
+                            </div>
+                            <div class="key slash">
+                                <p>/</p>
+                            </div>
+                            <div class="key mult">
+                                <p>*</p>
+                            </div>
+                            <div class="key minus">
+                                <p>-</p>
+                            </div>
+                            
+                            <div class="key n7">
+                                <p>7</p>
+                            </div>
+                            <div class="key n8">
+                                <p>8</p>
+                            </div>
+                            <div class="key n9">
+                                <p>9</p>
+                            </div>
+                            <div class="key plus">
+                                <p>+</p>
+                            </div>
+                            
+                            <div class="key n4">
+                                <p>4</p>
+                            </div>
+                            <div class="key n5">
+                                <p>5</p>
+                            </div>
+                            <div class="key n6">
+                                <p>6</p>
+                            </div>
+
+                            <div class="key n1">
+                                <p>1</p>
+                            </div>
+                            <div class="key n2">
+                                <p>2</p>
+                            </div>
+                            <div class="key n3">
+                                <p>3</p>
+                            </div>
+                            <div class="key enter">
+                                <p>ENT</p>
+                            </div>
+
+                            <div class="key n0">
+                                <p>0</p>
+                            </div>
+                            <div class="key dot">
+                                <p>,.</p>
+                            </div>
+                    </div>
+                </div>
+                <div class="touchpad">
+                    <div class="left-click key"></div>
+                    <div class="right-click key"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tall-Short Simulation</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <div class="lamp" style="left: 50%;"></div>
+        <div class="tall people" style="left: 50%;">
+            <div class="shadow"></div>
+        </div>
+        <div class="short people" style="left: 50%;">
+            <div class="shadow"></div>
+        </div>
+    </div>
+    <div class="text">
+        <div class="question">
+            Ένας κοντός και ένας ψηλός απομακρύνονται απο τον φανοστάτη (βράδυ) με την ίδια ταχύτητα ακολουθώντας αντίθετες κατευθύνσεις. Ποια από τις δύο σκιές κινείται πιο γρήγορα?
+        </div>
+        <hr>
+        <strong class="help">
+            Για να παίξει η προσομοίωση πατήστε οπουδήποτε στο παρακάτω γκρι πεδίο.<br>
+            Για ζουμ-ξεζουμ σύρετε την μπάρα που βρίσκεται κάτω
+        </strong>
+    </div>
+    <div class="buttons">
+        <input type="range" value="40" min="10" max="60" oninput="resize(this.value)">
+        <br>
+        <button onclick="reset()">RESET</button>
+    </div>
+</body>
+</html>

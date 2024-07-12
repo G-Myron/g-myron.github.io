@@ -1,0 +1,299 @@
+:root{
+    --stand-nav-height: 50px;
+    --to-front: 10;
+    font-family: serif, sans-serif, monospace, cursive, fantasy; /*These are all 5 families. The text will have the one written first.. If not aveliable, the 2nd.. etc*/
+        /*There are also the Google Fonts.*/
+}
+
+*{
+    cursor: auto;
+    color: black;
+    color: white;
+    /*overflow-y: auto;*/
+}
+
+::selection{
+    background-color: red;
+    color: black;
+}
+
+body{
+    cursor: not-allowed;
+    background-color: darkblue;
+    background-image: url("https://i.pinimg.com/originals/af/8d/63/af8d63a477078732b79ff9d9fc60873f.jpg");
+    background-repeat: repeat-x;
+    background-size: contain;
+    background-attachment: fixed;
+    margin: 0px;
+}
+
+header{
+    background-color: darkblue;/*
+    background: greenyellow;*/
+    text-align: center;
+}
+
+section{
+    background-color: rgb(34, 61, 61);/*
+    background-color: rgb(102, 255, 148);*/
+    color: white;
+    width: 90%;
+    margin: auto; /*horizontally centered block*/
+    margin-bottom: 80px;
+}
+
+aside{
+    position: fixed; /*fixed on screen while you scroll*/
+    right: 0;
+    bottom: 0;
+    z-index: var(--to-front);
+    /*float: right;*/
+    width: 200px;
+    height: 100px;
+    background-color: gray;
+    border: 10px solid;
+    border-color: red green; /*top&bottom right&left*/
+    opacity: 0.96;
+}
+
+p:not(.excepted){
+    font-size: 16px;
+    background-color: rgb(63, 35, 90);
+}
+
+footer{
+    margin: auto;
+    width: 90%;
+    height: 600px;
+    background: blue url("https://htmlcolorcodes.com/assets/images/html-color-codes-color-tutorials-hero.jpg") no-repeat;
+    background-size: contain;
+    background-position: right;
+}
+
+nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: var(--stand-nav-height);
+    color: rebeccapurple;
+    background-color: brown;/*
+    background-color: lightgrey;*/
+    font-size: 1.2em;
+}
+nav li{
+    list-style: none;
+    margin: 0 0.8em;
+}
+nav a{
+    /* transition: background-color .5s, color .5s, font-size .5s; */
+    transition: background-color, color, font-size;  /*all .5s*/
+    transition-duration: 0.5s;
+}
+span.material-icons{
+    color: green;
+    vertical-align: -4px;
+    transition: all .5s;
+}
+
+nav a:hover{
+    font-size: 2em;
+    background-color: black;
+    color: green;
+    border: none;
+    text-decoration: none;
+    box-shadow: 10px 1px 5px lightyellow;
+}
+nav a:hover span.material-icons{
+    vertical-align: unset;
+    color: blueviolet;
+}
+a:link,:visited{border: orange dashed 2px;}
+a:active{background-color: gray; color: rebeccapurple;}
+
+table, th, td{
+    border: 2px solid black;
+    border-collapse: collapse;
+}
+table::before{
+    content: "Table:";
+    border: none;
+    color: rgb(167, 79, 255);
+    font-weight: bold;
+}
+
+label{
+    font-weight: bold;
+}
+
+button{
+    cursor: pointer;
+    width: 150px;
+    height: 50px;
+    font-size: 16px;
+}
+button#themeButton:hover{opacity: 0.1;}
+
+img{
+    width: 40%;
+    vertical-align: middle;
+}
+
+iframe{
+    background-color: whitesmoke;
+    margin: auto;
+}
+
+.LightTheme{
+    background-image: none;
+    background-color: #f0f0f0;
+    color: black;
+}
+
+.inline{display: inline;}
+
+p.AllStyles{
+    position: relative; /*relative to its normal position*/
+    z-index: 1; /*bring in front*/
+    color:rgba(250, 150, 0, 1);
+    background-color: blue;
+    font-size: 2vw;
+    font-family: sans-serif;
+    text-align: center;
+    padding: 50px;
+    margin: 50px;
+}
+p.AllStyles::first-letter{
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+}
+p.AllStyles:hover{visibility: collapse;}
+
+.dropdown{
+    position: relative;
+    display: inline-block;
+}
+.dpdown_content {
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    box-shadow: 0px 10px 20px 0px rgba(0,0,0,0.2);
+    padding: 20px 20px;
+    z-index: 2;
+    /*background-color: blueviolet;*/
+}
+.dpdown_content a{
+    display: block;
+    border: unset;
+}.dpdown_content a:hover{
+    background-color: gray;
+}
+.dropdown:hover .dpdown_content {
+    display: block;
+}
+
+
+.hided{display: none;}
+.hided:hover{display: block;} /*This is not needed if .hided is inside the active element*/
+:active ~ .hided{ /* b ~ a means every a that comes right after a b.  element:active means when element clicked. :active means anything when active*/
+    display: block;
+}
+
+#button_on_the_back{
+    z-index: 0; /*default*/
+    position: absolute; /*relative to the nearest positioned ancestor*/
+    top: 50px;
+    left: 150px;
+    opacity: 0.5;
+}#button_on_the_back:hover{
+    opacity: 1;
+}
+
+#topContainer{
+    z-index: var(--to-front);
+    display: grid;/******WOW*******/
+    place-items: center;/*****WOW*******/
+    position: sticky; /*first relative (default position), then fixed*/
+    top: -10px;
+    height: 150px;
+    text-align: center;
+    opacity: 0.9;
+    background-color: black;
+    font-style: oblique;
+}
+#topContainer > *{
+    width: 100%;
+    opacity: 1;
+}
+#topContainer > p{
+    font-size: 20px;
+    background-color: blueviolet;
+    margin: 0%;
+}
+
+#lists{
+    background-color: darkcyan;/*
+    background-color: beige;*/
+    border: 3px solid black;
+    margin-left: 50%;
+    width: 20%;
+}
+
+#lists ul{
+    list-style: "u. " inside;
+    background-color: rgb(192, 144, 81);
+}
+#lists li{
+    background-color: rgb(134, 96, 96);
+    margin: 5px;
+}
+#lists ol{
+    list-style: lower-greek outside;
+    background-color: rgb(192, 144, 81);
+}
+
+#styledTable th{
+    background-color: blue;
+    color: red;}
+#styledTable tr:nth-child(2n){
+    background-color: darkgrey;
+    color: black;}
+#styledTable tr:nth-child(odd){
+    background-color: white;
+    color: black;}
+#styledTable tr:last-child{ /*last tr element in #styledTable*/
+    background-color: blueviolet;
+}
+
+
+[href]{cursor: pointer;} /*Everything that has attribute href*/
+[href=""]{color: yellow;}
+
+
+@media screen and (max-width: 1000px) {
+    body{margin-left: 30%;}
+    #topContainer{
+        display: block;
+        padding-top: 20px;
+        height: 100vh;
+        margin-left: -30%;
+        width: 30%;
+        position: fixed;
+    }
+    nav{ height: 50%;}
+    nav li{
+        display: block;
+        float: none;
+        padding: auto;
+    }
+}
+@media screen and (max-width: 600px) {
+    body{margin-left: 0%;}
+    #topContainer{
+        margin-left: 0%;
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+}

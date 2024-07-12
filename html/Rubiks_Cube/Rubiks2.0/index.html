@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rubik's Cube</title>
+    <link rel="icon" href="RCicon.png">
+    <link rel="stylesheet" href="styleCube.css">
+    <link rel="stylesheet" href="styleBlock.css">
+    <script src="rotateCube.js" defer></script>
+    <script src="createBlocks.js" defer></script>
+    <script src="setState.js" defer></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="cube">
+            <div class="face front"></div>
+            <div class="face back"></div>
+            <div class="face right"></div>
+            <div class="face left"></div>
+            <div class="face top"></div>
+            <div class="face bottom"></div>
+        </div>
+    </div>
+    <div class="buttons">
+        <button id="reset">Reset</button>
+        <input value="000000">
+    </div>
+</body>
+</html>

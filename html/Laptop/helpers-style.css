@@ -1,0 +1,35 @@
+
+.helpers {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1vmin;
+    background-color: rebeccapurple;
+    padding: 1vmin;
+    max-height: var(--laptop-size);
+    overflow: auto;
+}
+
+.helpers h3 {
+    margin: 0;
+}
+
+.helper {
+    text-align: center;
+    font-weight: 600;
+    padding: 0 .5vmin;
+    border: .5vmin groove black;
+    border-radius: 2vmin;
+}
+
+.helper input {
+    font-size: inherit;
+    width: 8ch;
+    width: 100%;
+    background-color: black;
+    color: white;
+    text-align: center;
+    cursor: default;
+}
+

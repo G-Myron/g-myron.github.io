@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <!-- Bootstrap CSS only<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="FormStyle.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="icon" href="https://www.pinclipart.com/picdir/middle/159-1590496_form-approved-icon-check-list-png-icon-clipart.png">
+    <script src="FormJS.js" defer></script>
+</head>
+<body>
+    <section>
+    <form action="" novalidate id="myform"> <!--onsubmit="return validate()"-->
+        <fieldset id="personal_info">
+            <legend>Προσωπικά Στοιχεία &emsp; <span class="material-icons">badge</span></legend>
+            <label for="userName">* Δώστε το όνομά σας: </label>
+            <input class="form-control" name="firstName" id="userName" placeholder="π.χ. Μύρων" required autofocus>
+            <div class="ifValid">Ωραίο όνομα</div>
+            <div class="ifInvalid">Άκυρο όνομα</div>
+            <br>
+            <label for="surname">* Δώστε το επίθετό σας: </label>
+            <input class="form-control" name="lastName" id="surname" placeholder="π.χ. Γιαννάκης" required>
+            <div class="ifValid">Ωραίο επίθετο</div>
+            <div class="ifInvalid">Άκυρο επίθετο</div>
+            <br>
+            <label for="birthDate">* Ημερομηνία γέννησης: </label>
+            <input class="form-control" type="date" name="birth" id="birthDate" value="Date.now()" required>
+            <div class="ifValid">Έγκυρη ημερομηνία γέννησης</div>
+            <div class="ifInvalid">Άκυρη ημερομηνία γέννησης</div>
+            <br>
+            <label for="age">Η ηλικία σας είναι: </label>
+            <input type="number" name="age" id="age" value="" min="18" max="99" readonly required>
+            <br>
+            <label for="sex">* Επιλέξτε το φύλο σας:</label><br>
+            <div>
+                <input type="radio" name="sex" id="sexM" required checked>
+                <label for="sexM">Άντρας</label>
+                <br>
+                <input type="radio" name="sex" id="sexW">
+                <label for="sexW">Γυναίκα</label>
+            </div>
+        </fieldset>
+        <hr>
+        <fieldset id="account_info">
+            <legend>Πληροφορίες Λογαριασμού &emsp; <span class="material-icons">account_circle info</span></legend>
+            <label for="eMail">* Δώστε το email σας: </label><br>
+            <input class="form-control" type="email" id="eMail" name="email" placeholder="γράψτε ένα έγκυρο email" required>
+            <div class="ifValid">Έγκυρο email</div>
+            <div class="ifInvalid">Άκυρο email</div>
+            <br>
+            <label for="pass">* Κωδικός πρόσβασης: </label><br>
+            <input type="password" id="pass" name="pass" placeholder="5 τουλάχιστον χαρακτήρες (αριθμούς και γράμματα)"
+                pattern="^(?=[^0-9]*[0-9])(?=[^a-z]*[a-z]).{5,}$" required>
+            <br>
+            <label for="repass">* Επιβεβαίωση κωδικού: </label><br>
+            <input type="password" id="repass" name="repass" placeholder="Ξαναδώστε τον κωδικό για επιβεβαίωση"
+                pattern="^(?=[^0-9]*[0-9])(?=[^a-z]*[a-z]).{5,}$" required>
+            <br>
+        </fieldset>
+        <hr>
+        <fieldset id="other">
+            <legend>Άλλα &emsp; <span class="material-icons">more</span></legend>
+            <label for="checker">Επιλέξτε όσα ισχύουν: </label><br>
+            <div id="checker">
+                <input type="checkbox" id="item1">
+                <label for="item1">Γνωρίζω Python ή Java</label><br>
+                <input type="checkbox" id="item2">
+                <label for="item2">Γνωρίζω C ή C++</label><br>
+                <input type="checkbox" id="item3">
+                <label for="item3">Γνωρίζω προγραμματισμό διαδικτύου - HTML,CSS,JavaScript</label><br>
+            </div>
+            <br>
+            <label for="towns">Επιλέξτε την πόλη σας</label>
+            <input list="places" name="town" id="towns">
+            <datalist id="places"><!--Στο datalist μπορείς και να γράψεις, σε αντίθεση με το select σκέτο-->
+            <select>
+            </select>
+            </datalist>
+            <br>
+            <input type="file" id="fileUp" accept=".pdf, .txt, image/*, video/mp4" style="display: none;">
+            <output id="showFile"></output>
+            <input type="button" value="Επιλογή βιογραφικού" id="buttonin" onclick="document.querySelector('#fileUp').click()">
+            <br>
+            <label for="giveText">Πείτε μας κάτι σημαντικό για εσάς:</label><br>
+            <textarea name="aboutMe" id="giveText" placeholder="Όριο 500 χαρακτήρες" cols="60" rows="10" maxlength="500"></textarea>
+            <br><output id="charsLeft">Μένουν ακόμα 500 χαρακτήρες.</output>
+            <br>
+            <output>Hello I am Black</output>
+        </fieldset>
+        <br>
+        <p>Τα στοιχεία με αστερίσκο(*) είναι υποχρεωτικά!
+            <input type="submit" value="Υποβολή">
+        </p>
+    </form>
+    </section>
+</body>
+</html>

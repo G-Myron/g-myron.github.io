@@ -1,0 +1,180 @@
+
+.laptop {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: Courier, "Forte", cursive;
+    font-size: calc(.4*var(--measurement-unit));
+    background-color: #eee;
+    border-radius: calc(.1*var(--laptop-size));
+    width: var(--laptop-size);
+    height: var(--laptop-size);
+    user-select: none;
+    /* perspective: 200cm; */
+}
+
+.panel {
+    position: relative;
+    background-color: var(--panel-color);
+    width: calc(var(--panels-width-fraction)*100%);
+    height: 45%;
+    transform-style: preserve-3d;
+}
+
+
+/*------------------------------------------ TOP PANEL ------------------------------------------*/
+
+.top-panel {
+    transform-origin: bottom;
+    transform: var(--initial-rotation);
+}
+
+.screen {
+    position: absolute;
+    inset: var(--measurement-unit) calc(var(--laptop-size)/30) calc(3*var(--measurement-unit));
+    background-color: grey;
+    background: linear-gradient(45deg, #014 20%, #19f);
+    background-size: cover;
+    background-image: url("https://media.istockphoto.com/photos/technology-and-coffee-on-a-wooden-table-picture-id483731108?b=1&k=20&m=483731108&s=170667a&w=0&h=rEtAJHRPwE86R6wAj5FXhGGDvhhTenRo-tueQDD_qjg=");
+    background-image: url("https://static.standard.co.uk/s3fs-public/thumbnails/image/2017/11/24/09/microsoft-xp-desktop-0.jpg?width=1200&width=1200&auto=webp&quality=75");
+}
+
+
+/*------------------------------------------ BASE PANEL ------------------------------------------*/
+
+.base-panel {
+    transform-origin: top;
+    transform: var(--initial-rotation) rotateX(-90deg);
+}
+.base-panel > * {
+    backface-visibility: hidden;
+}
+
+/*---------- Keyboard ----------*/
+
+.keyboard {
+    --keys-space: calc(.3*var(--measurement-unit));
+    --default-key-size: calc(1.5*var(--measurement-unit));
+    --size: 1.5; /* number of cms in reality */
+    /* position: absolute;
+    inset: 2vmin 1vmin 5vmin 1vmin; */
+    margin: calc(.5*var(--measurement-unit));
+    display: flex;
+    justify-content: space-between;
+    height: fit-content;
+    background-color: var(--keyboard-color);
+}
+
+.top-keys-row {
+    --size: 1.4;
+}
+
+.top-keys-row, .numbers-keys-row, .letters-keys-row, .keys-row {
+    display: flex;
+}
+
+.key {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--key-color);
+    border-radius: calc(.1*var(--measurement-unit));
+    width: calc(var(--size)*var(--measurement-unit));
+    height: var(--default-key-size);
+    margin: calc(var(--keys-space) /2); /* /2 because flex margin not collapsing */
+}
+
+.key p {
+    margin: 0;
+    text-align: center;
+}
+
+
+/*---------- Numbers board ----------*/
+
+.numbers-keys {
+    display: grid;
+    grid-template-rows: repeat(6, var(--default-key-size));
+    grid-template-columns: repeat(4, var(--default-key-size));
+    grid-template-areas:
+        "h p up dn"
+        "n s m sub"
+        "_7 _8 _9 plus"
+        "_4 _5 _6 plus"
+        "_1 _2 _3 ent"
+        "_0 _0 del ent";
+    gap: var(--keys-space);
+    margin-right: var(--keys-space);
+}
+.numbers-keys > .key {
+    width: 100%;
+    height: 100%;
+}
+
+.plus {
+    grid-area: plus;
+}
+.enter {
+    grid-area: ent;
+}
+.n0 {
+    grid-area: _0;
+}
+
+/* .home {grid-area: h;}
+.prt-sc {grid-area: p;}
+.up {grid-area: up;}
+.down {grid-area: dn;}
+.numlock {grid-area: n;}
+.slash {grid-area: s;}
+.mult {grid-area: m;}
+.minus {grid-area: sub;}
+.n7 {grid-area: _7;}
+.n8 {grid-area: _8;}
+.n9 {grid-area: _9;}
+.plus {grid-area: plus;}
+.n4 {grid-area: _4;}
+.n5 {grid-area: _5;}
+.n6 {grid-area: _6;}
+.n1 {grid-area: _1;}
+.n2 {grid-area: _2;}
+.n3 {grid-area: _3;}
+.enter {grid-area: ent;}
+.n0 {grid-area: _0;}
+.dot {grid-area: del;} */
+
+
+/*---------- Touchpad ----------*/
+
+.touchpad {
+    position: relative; /*not necessary ?*/
+    height: calc(5*var(--measurement-unit));
+    width: calc(8.09*var(--measurement-unit));
+    margin-left: 50%;
+    transform: translate(-50%);
+    background-color: #333;
+    border: calc(.1*var(--measurement-unit)) solid #aaa;
+}
+
+.left-click, .right-click {
+    position: absolute;
+    inset: auto auto 0 0;
+    height: calc(1*var(--measurement-unit));
+    width: calc(4*var(--measurement-unit));
+}
+.right-click {
+    inset: auto 0 0 auto;
+}
+
+
+/*---------- Interactions ----------*/
+
+.key:hover {
+    background-color: #305;
+    z-index: 1;
+    transform: scale(2);
+}
+.key:active {
+    transform: scale(1.8);
+}

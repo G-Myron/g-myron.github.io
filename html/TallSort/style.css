@@ -1,0 +1,117 @@
+:root {
+    --lamp-height: 50vh;
+    --tall-height: calc(0.5 * var(--lamp-height));
+    --short-height: calc(0.5 * var(--tall-height));
+}
+
+body {
+    height: 100vh;
+    margin: 0;
+    display: grid;
+    align-items: center;
+}
+
+.container {
+    position: relative;
+    background-color: #eee;
+    height: var(--lamp-height);
+    display: grid;
+    align-items: flex-end;
+}
+
+.container > * {
+    position: absolute;
+    width: 5px;
+    transform: translate(-50%);
+    left: 50%;
+}
+
+.lamp {
+    background-color: red;
+    border-top: solid 10px yellow;
+    box-sizing: border-box;
+    height: var(--lamp-height);
+}
+.lamp::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    width: 25px;
+    height: 25px;
+    background-color: yellow;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.tall {
+    height: var(--tall-height);
+}
+.short {
+    height: var(--short-height);
+}
+.tall::before, .short::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%);
+    width:  15px;
+    height: 15px;
+    border-radius: 50%;
+}
+
+.people, .people::before {
+    background-color: #88a;
+}
+
+.shadow {
+    position: absolute;
+    bottom: 0;
+    background-color: black;
+    height: 5px;
+}
+
+.short .shadow {
+    transform-origin: center left;
+    transform: rotate(180deg);
+}
+
+.tall .shadow {
+    margin-left: 5px;
+}
+
+/************** OTHER STUFF ***************/
+
+.text {
+    position: absolute;
+    top: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 10px;
+}
+
+
+.buttons {
+    position: fixed;
+    bottom: 3vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+input {
+    width: 40%;
+    cursor: pointer;
+}
+
+button {
+    min-width: 10rem;
+    background-color: #000;
+    color: white;
+    border: 5px solid #75f;
+    border-radius: 2rem;
+    cursor: pointer;
+}
+
+

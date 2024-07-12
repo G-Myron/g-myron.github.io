@@ -1,0 +1,248 @@
+:root{
+    --bg-color: blueviolet;/*rgb(170, 90, 245);*/
+    --grey-color: #bbc;
+    --white-color: aliceblue;
+}
+
+::-webkit-scrollbar {
+    display: none; /*Hide window scrollbar*/
+}
+
+::selection{
+    background-color: black;
+    color: var(--white-color);
+}
+
+body{
+    background-color: var(--bg-color);
+    font-family: serif;
+    font-size: 1.2em;
+}
+
+.noscroll{
+    overflow-y: hidden;
+}
+
+body> ul{
+    padding: 0;
+    margin: 0;
+}
+
+* > a{
+    color: inherit;
+    text-decoration: auto;
+}
+
+fieldset.page{
+    background-color: var(--white-color);
+    width: 75%;
+    padding: 1em 0;
+    margin: 1em auto;
+    border: 2px solid var(--white-color); /* border: none; */
+    border-radius: 1em;
+    box-shadow: black 20px;
+    transition: all .75s;
+}
+
+fieldset.page:hover{
+    transform: scale( 1.2, 1.2) translateX(0);
+    box-shadow: black 20px;
+}
+
+fieldset.page> legend{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: purple;
+    color: var(--white-color);
+    font-size: 1.2em;
+    min-width: fit-content;
+    width: 40%;
+    border: 3px dashed black;
+    border-radius: 5px;
+}
+fieldset.page> legend span{
+    font-size: 100%;
+}
+fieldset.page> legend a{
+    width: 100%;
+}
+
+section.field{
+    background-color: black;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    min-height: 2em;
+    position: relative;
+    border-bottom: 1px solid var(--white-color);
+}
+
+section.field > div{
+    background-color: var(--white-color);
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 7px;
+}
+
+section.field > div.question{
+    background-color: black;
+    color: dodgerblue;/*gold;*/
+}
+section.field > div.date{
+    background-color: var(--bg-color);
+    color: var(--white-color);
+    margin-left: auto;
+    /* position: absolute;
+    right: 0; */
+}
+
+section.field a{
+    color: initial;
+    text-decoration: none;
+    cursor: alias;
+}
+
+iframe{
+    min-height: 75vh;
+    min-width: 75vw;
+    overscroll-behavior: none;
+}
+
+
+footer{
+    display: flex;
+    align-items: center;
+    width: 60%;
+    justify-content: space-around;
+    background-color: lightblue;
+        background-color: purple;
+    color: var(--white-color);
+    margin: 1em auto;
+    border: 1px solid var(--white-color);
+        border: 3px dashed black;
+    border-radius: 1em;
+}
+
+footer> *:first-child{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+footer> a{
+    transition: .75s;
+}
+footer> a:hover{
+    transform: rotate( 1.5turn) scale( 1.5, 1.5);
+}
+
+
+/*///////////////////////////////////////////////////--- SIDE NAVBAR -------------------------------------------------///*/
+
+
+nav{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    left: 0;
+    top: 0;
+    font-family: Garamond,sans-serif;
+    z-index: 10;
+    height: 100vh;
+    width: 2.5%;
+    overflow-x: hidden;
+    opacity: 0.5;
+    transition: 1s;
+}
+
+nav>*{
+    width: 12.5vw; /*100%;*/
+    padding: 5px 0;
+    /* cursor: none; */
+    transition: 1s;
+}
+
+nav>ul{
+    display: grid;
+    align-content: start;
+    height: 50%;
+    padding: 1em 0;
+    margin: 0;
+}
+
+nav> ul> a{
+    cursor: pointer;
+    color: var(--white-color);
+    margin: 5px 2px;
+    border: 2px solid var(--white-color);
+    transition: 1s;
+}
+
+nav:hover, nav.clicked{
+    width: 12.5%;
+    background-color: black;
+    opacity: 1;
+    transition: 1s;
+}
+
+nav> *:hover:not(ul), nav.clicked> *:not(ul){
+    background-color: var(--bg-color);
+    transition: 1.5s;
+}
+
+nav> ul:hover> a{
+    color: initial;
+    background-color: var(--grey-color);
+    transition: .5s;
+}
+nav> ul> a:hover{
+    background-color: var(--bg-color);
+    transition: .5s;
+}
+
+
+/*///////////////////////////////////////////////////--- Canvas -------------------------------------------------///*/
+canvas{
+    display: block;
+    width: 50%;
+    margin: 0 auto;
+}
+
+
+
+/*///////////////////////////////////////////////////--- For Mobile -------------------------------------------------///*/
+
+@media (max-aspect-ratio: 1/1), (max-width: 850px){   /*------------ w/h = 1  or  w<=850 -------------*/
+
+body{
+    background-color: darkblue;
+    font-size: 3vw;
+}
+
+footer img{
+    width: 5vw;
+}
+
+}
+
+@media (prefers-color-scheme: light) {
+    :root{
+        --bg-color: rgb(170, 90, 245);
+        --grey-color: #bbc;
+        --white-color: white;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root{
+        --bg-color: blueviolet;
+        --grey-color: #777;
+        --white-color: aliceblue;
+    }
+}
+
+

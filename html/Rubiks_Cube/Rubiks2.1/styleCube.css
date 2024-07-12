@@ -1,0 +1,105 @@
+
+:root{
+    --half-side: 20vmin;
+}
+
+html,body{
+    background: #aaa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    overflow: hidden;
+    overscroll-behavior: none;
+    cursor: grab;
+}
+
+.container{
+    width: calc(2*var(--half-side));
+    height: calc(2*var(--half-side));
+    padding: calc(.5*var(--half-side));
+    perspective: 40cm;
+	box-shadow: 0 0 20px black;
+}
+
+.cube{
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transform: translateZ( calc(-1*var(--half-side)) );
+}
+
+
+.face{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    user-select: none;
+    transform-style: preserve-3d;
+}
+
+.face.front{
+    /* background-color: white; */
+    transform: rotateY(0deg) translateZ( var(--half-side));
+}
+
+.face.back{
+    /* background-color: green; */
+    transform: rotateY(180deg) translateZ( var(--half-side));
+}
+
+.face.right{
+    /* background-color: red; */
+    transform: rotateY(90deg) translateZ( var(--half-side));
+}
+
+.face.left{
+    /* background-color: blue; */
+    transform: rotateY(-90deg) translateZ( var(--half-side));
+}
+
+.face.top{
+    /* background-color: yellow; */
+    transform: rotateX(90deg) translateZ( var(--half-side));
+}
+
+.face.bottom{
+    /* background-color: orange; */
+    transform: rotateX(-90deg) translateZ( var(--half-side));
+}
+
+
+.buttons {
+    position: absolute;
+    bottom: 1em;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1em;
+}
+.buttons > button {
+    width: 8vw;
+    min-width: max-content;
+    padding: 0 1em;
+    height: 8vh;
+    font: 1.5rem serif;
+    cursor: pointer;
+    background-color: blueviolet;
+}
+.buttons > button:active{
+    border: 2px solid black;
+    box-shadow: 2px 3px 2px black;
+    text-shadow: 1px 1px 1px black;
+}
+
+@media (max-aspect-ratio: 1) {
+    .buttons {
+        justify-content: center;
+    }
+    .buttons > input {
+        display: none;
+    }
+}

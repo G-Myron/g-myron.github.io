@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Who is Myron</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="icon" href="myLogo.svg">
+    <script src="drawIcon.js" defer></script>
+</head>
+<body>
+    <nav onclick="
+    this.classList.contains('clicked')? this.classList.remove('clicked'): this.classList.add('clicked');">
+        <h4>
+            Not just a successful engineer. I am studying to become something more than that…
+        </h4>
+        <ul>
+            <a href="#page1">About me</a>
+            <a href="projects.html">Projects</a>
+            <a href="education.html">Education</a>
+            <a href="#page3">Certificates</a>
+            <a href="#page4">Other</a>
+        </ul>
+        <h4>
+            This site is created using only HTML and CSS.
+        </h4>
+    </nav>
+    
+    <img src="myLogo.svg" alt="No SVG" width="60%">
+    <canvas></canvas>
+
+    <ul>
+        <fieldset class="page" id="page1" title="Personal info">
+            <legend>Personal Information &emsp; <span class="material-icons">badge</span></legend>
+            <section class="field" id="name">
+                <div class="question">Who am I?</div>
+                <div class="answer"><a href="https://www.linkedin.com/in/myron-giannakis" target="_blank">Myron Giannakis</a></div>
+                <div class="date">October 2001</div>
+            </section>
+            <section class="field" id="town">
+                <div class="question">Where do I live?</div>
+                <div class="answer">Thessaloniki, Greece, Europe</div>
+            </section>
+            <section class="field" id="interests">
+                <div class="question">What are my interests?</div>
+                <div class="answer">Web Development</div>
+                <div class="answer">Machine Learning</div>
+                <div class="answer">Quantum Programming</div>
+            </section>
+        </fieldset>
+        <fieldset class="page" id="page2" title="Projects">
+            <legend><a href="projects.html">Projects &emsp; <span class="material-icons">source</span></a></legend>
+            <section class="field" id="rotCube">
+                <div class="question">Rotating Cube:</div>
+                <div class="answer"><a href="../Rotating-Cube" target="_blank">Rotating Cube</a></div>
+                <div class="date">September 2021</div>
+            </section>
+            <section class="field" id="RubCube">
+                <div class="question">Rubik's Cube:</div>
+                <div class="answer"><a href="../Rubiks-Cube" target="_blank">Rubik's Cube</a></div>
+                <div class="date">September 2021</div>
+            </section>
+        </fieldset>
+        <fieldset class="page" id="page3" title="Education">
+            <legend><a href="education.html">Education &emsp; <span class="material-icons">school</span></a></legend>
+            <section class="field" id="undergraduate">
+                <div class="question">Undergraduate studies:</div>
+                <div class="answer">ECE at the University of Patras</div>
+                <div class="date">2019 - present</div>
+            </section>
+            <section class="field" id="summer_school">
+                <div class="question">Summer schools:</div>
+                <div class="answer">CTY 2015</div>
+                <div class="answer">CTY 2016</div>
+                <div class="answer">QWorld QSS 2021</div>
+            </section>
+        </fieldset>
+        <fieldset class="page" id="page4" title="Certifications">
+            <legend>Certifications &emsp; <span class="material-icons">card_membership</span></legend>
+            <section class="field" id="certificates">
+                <div class="question">Certificates:</div>
+                <div class="answer"></div>
+                <div class="date">2021 - present</div>
+            </section>
+            <section class="field" id="badges">
+                <div class="question">Web badges:</div>
+                <div class="answer"><a href="https://www.credly.com/users/myron-giannakis/badges" target="_blank">My earned badges at Credly</a></div>
+                <div class="date">2021 - present</div>
+            </section>
+        </fieldset>
+        <fieldset class="page" id="page5" title="Groups Memberships">
+            <legend>Groups Memberships &emsp; <span class="material-icons">groups</span></legend>
+            <section class="field" id="mensa">
+                <div class="question">MENSA</div>
+                <div class="date">2018 - present</div>
+            </section>
+            <section class="field" id="ieee">
+                <div class="question">IEEE SB UPatras</div>
+                <div class="date">2021 - present</div>
+            </section>
+            <section class="field" id="eestec">
+                <div class="question">EESTEC LC Patras</div>
+                <div class="date">2021 - present</div>
+            </section>
+        </fieldset>
+        <fieldset class="page" id="page6" title="Other" style="height: 50vh;">
+            <legend>Other &emsp; <span class="material-icons">more</span></legend>
+            <section class="field" id="music">
+                <div class="question">Music studies</div>
+                <div class="answer">Music Theory Diploma</div>
+            </section>
+            <section class="field" id="track">
+                <div class="question">Track & Field</div>
+                <div class="answer">High jump athlete</div>
+            </section>
+        </fieldset>
+    </ul>
+    <footer>
+        <h2>Contact me:</h2>
+        <a href="https://www.facebook.com/myrongian/" target="_blank">
+            <img title="Facebook" width="40" src="https://static.xx.fbcdn.net/rsrc.php/yD/r/d4ZIVX-5C-b.ico" alt="Facebook">
+        </a>
+        <a href="https://www.linkedin.com/in/myron-giannakis/" target="_blank">
+            <img title="linkedIn" width="40" src="https://static-exp1.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" alt="LinkedIn">
+        </a>
+        <a href="https://discord.com/users/691983048241315890" target="_blank">
+            <img title="Discord" width="40" src="https://theme.zdassets.com/theme_assets/678183/84b82d07b293907113d9d4dafd29bfa170bbf9b6.ico" alt="Discord">
+        </a>
+        <a href="https://github.com/G-Myron" target="_blank">
+            <img title="GitHub" width="40" src="https://github.githubassets.com/pinned-octocat.svg" alt="GitHub">
+        </a>
+        <a href="https://github.com/G-Myron" target="_blank">
+            <img title="GitHub" width="40" src="https://github.com/fluidicon.png" alt="GitHub">
+        </a>
+        <a href="mailto:gmyron1@gmail.com">
+            <img title="Email" width="40" src="https://ssl.gstatic.com/ui/v1/icons/mail/rfr/gmail.ico" alt="Email">
+        </a>
+    </footer>
+</body>
+</html>

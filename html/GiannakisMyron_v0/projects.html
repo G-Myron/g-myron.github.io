@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Projects</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="icon" href="myLogo.svg">
+    <script src="code.js" defer></script>
+</head>
+<body>
+    <ul>
+        <fieldset class="page" id="page1" title="RotatingCube">
+            <legend>Rotating Cube</legend>
+            <section class="field" id="rotCube">
+                <div class="question">Rotating Cube:</div>
+                <div class="answer"><a href="../Rotating-Cube/index.html" target="_blank">Rotating Cube</a></div>
+                <div class="date">September 2021</div>
+            </section>
+            <iframe name="rotatingCube" src="../Rotating-Cube/index.html"
+                        onmouseover="document.querySelector('body').classList.add('noscroll');"
+                        onmouseout="document.querySelector('body').classList.remove('noscroll');"></iframe>
+        </fieldset>
+        <fieldset class="page" id="page2" title="RubiksCube">
+            <legend>Rubik's Cube</legend>
+            <section class="field" id="RubCube">
+                <div class="question">Rubik's Cube:</div>
+                <div class="answer"><a href="../Rubiks-Cube/index.html" target="_blank">Rubik's Cube</a></div>
+                <div class="date">September 2021</div>
+            </section>
+            <iframe name="rotatingCube" src="../Rubiks-Cube/index.html"
+                        onmouseover="document.querySelector('body').classList.add('noscroll');"
+                        onmouseout="document.querySelector('body').classList.remove('noscroll');"></iframe>
+        </fieldset>
+    </ul>
+</body>
+</html>

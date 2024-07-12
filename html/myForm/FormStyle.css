@@ -1,0 +1,120 @@
+:root{
+    --backgroundColor: #bbc;
+    --myred: #dc3545;
+    --mygreen: #198754;
+    font-weight: bold;
+}
+
+body{
+    background-color: blueviolet;
+}
+
+section{
+    display: grid;
+    place-items: center;
+}
+
+input{
+    margin-bottom: 1em;
+    border-radius : 10px;
+}
+
+fieldset{
+    background-color: var(--backgroundColor);
+    width: 45em;
+}
+
+legend{
+    font-size: 1.2em;
+    width: 20em;
+    background-color: purple;
+    color: aliceblue;
+    text-align: center;
+    border: 3px dashed black;
+    border-radius: 5px;
+}
+
+textarea{
+    margin-left: 5em;
+    resize: horizontal;
+}
+
+textarea ~ output:nth-of-type(2){
+    color: white;
+    margin-left: 10em;
+}
+
+label:has(+ input) {
+    color: red;
+}
+
+#account_info input{
+    margin-bottom: 1.2em;
+    border-radius: inherit;
+    min-width: 25em;
+    height: 1.5em;
+}
+
+form div{
+    display: inline-block;
+    margin-left: 10em;
+}
+form p{
+    display: flow-root;/* overflow: auto; */
+    color: red;
+    background-color: var(--backgroundColor);
+}
+
+input[type="number"]{
+    text-align: center;
+}
+
+input[type="submit"]{
+    float: right;
+    background-color: lightseagreen;
+    min-width: 10em;
+    min-height: 2em;
+    font-size: medium;
+    margin-right: 10%;
+    margin-top: 1em;
+}
+
+.material-icons{
+    vertical-align: -4px;
+}
+
+
+/*****************Instead of Bootstrap:*************/
+
+.ifValid,.ifInvalid{
+    display: none;
+    margin-left: 1em;
+    font-size: 0.85em;
+}
+
+.validate input[required]:valid{
+    border-color: var(--mygreen);
+    /* background-image: url(data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23198754' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e);*/
+    background-image: url("https://i.pinimg.com/originals/46/01/15/460115d037561ad42a1aa9a6a3d17a5f.png");
+    background-repeat: no-repeat;
+    background-position: right .5em center;
+    background-size: 1.1em 1.2em;
+}
+.validate input[required]:invalid{
+    border-color: var(--myred);
+    /* background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e"); */
+    background-image: url("https://www.clipartmax.com/png/full/388-3887666_wrong-icon-with-png-and-vector-format-for-free-unlimited-wrong-icon.png");
+    background-repeat: no-repeat;
+    background-position: right .5em center;
+    background-size: 1.1em;
+}
+
+.validate [required]:valid + .ifValid, .validate input[required]:valid +.ifInvalid+ .ifValid{
+    display: inline;
+    color: var(--mygreen);
+}
+.validate [required]:invalid + .ifInvalid, .validate input[required]:invalid +.ifValid+ .ifInvalid{
+    display: inline;
+    color: var(--myred);
+}
+

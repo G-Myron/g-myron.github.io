@@ -1,20 +1,21 @@
 
 ---
 ### My client-side projects hosted in Github Pages:
-- **[My Chess game](https://g-myron.github.io/chess/)**
-- **[My Rubicks Cube](https://g-myron.github.io/Rubiks-Cube/)**
-- **[My rotating cube](https://g-myron.github.io/Rotating-Cube/)**
+- **[My Chess game](./html/Chess/)**
+- **[My Rubicks Cube](./html/Rubiks_Cube/)**
 - 
-- **[App for my Erasmus mobility](https://g-myron.github.io/ErasmusPoliMi/)**
-- **[Simulation of a high school maths problem](https://g-myron.github.io/tall-short-simulation/)**
-- **[My world map](https://g-myron.github.io/worldMap/)**
-- **[My virtual gift card](https://g-myron.github.io/filaras/)**
-- **[My personal page (a first attempt)](https://g-myron.github.io/me/)**
-- **[My first HTML form](https://g-myron.github.io/myForm/)**
-- **[My first HTML page](https://g-myron.github.io/myHTML/)**
+- **[App for my Erasmus mobility](./html/ErasmusPoliMi/)**
+- **[Simulation of a high school maths problem](./html/TallSort/)**
+- **[My world map](./html/WorldMap/)**
+- **[My virtual gift card](./html/VirtualCard/)**
+- **[A virtual laptop](./html/Laptop/)**
+- **[A file decoder](./html/FileHandler/)**
+- **[My personal page (a first attempt)](./html/GiannakisMyron_v0/)**
+- **[My first HTML form](./html/myForm/)**
+- **[My first HTML page](./html/Tutorial/)**
 
 ---
 ### I am also implementing some of these projects in a flask full-stack app where more features are added (databases).
 
-#### Clone [this repository](https://github.com/G-Myron/g-myron.github.io.git) and run with `flask run` or just `app.py`
+#### Clone [this repository](https://github.com/G-Myron/g-myron.github.io) and run with `flask run` or just `app.py`
 
