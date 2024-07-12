@@ -1,5 +1,5 @@
-const paths = document.querySelectorAll("#worldMap > path");
-const screen = document.querySelector("#screen");
+const paths = document.querySelectorAll("#worldMap path");
+const mapScreen = document.querySelector("#screen");
 
 const hoverColor = '#ccc', markedColor = '#a0c';
 
@@ -16,7 +16,7 @@ paths.forEach( path => {
 
 
     path.onmouseenter = e=> {
-        screen.textContent = path.name;
+        mapScreen.textContent = path.name;
         // if ( !path.clicked )
             applyToCountry(path.name, cntryPath => cntryPath.setAttribute('fill', hoverColor));
     };
